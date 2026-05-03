@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/salesforce-net-zero-cloud/blob/main/json-schema/salesforce-net-zero-cloud-carbon-emission-schema.json",
+  "title": "Salesforce Net Zero Cloud Carbon Emission",
+  "description": "Schema for a carbon emission record in Salesforce Net Zero Cloud, tracking greenhouse gas emissions by scope, source, and reporting period.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "description": "Salesforce record ID"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Auto-generated name for the emission record"
+    },
+    "Scope": {
+      "type": "integer",
+      "description": "GHG Protocol scope category",
+      "enum": [1, 2, 3]
+    },
+    "EmissionSource": {
+      "type": "string",
+      "description": "The source of the emission (e.g., Natural Gas Combustion, Business Travel)"
+    },
+    "QuantityMtCO2e": {
+      "type": "number",
+      "description": "Quantity of greenhouse gas emissions in metric tons of CO2 equivalent",
+      "minimum": 0
+    },
+    "ReportingYear": {
+      "type": "integer",
+      "description": "The fiscal or calendar year for this emission record",
+      "minimum": 1990,
+      "maximum": 2100
+    },
+    "ReportingPeriodStartDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Start date of the reporting period"
+    },
+    "ReportingPeriodEndDate": {
+      "type": "string",
+      "format": "date",
+      "description": "End date of the reporting period"
+    },
+    "FacilityId": {
+      "type": "string",
+      "description": "Salesforce ID of the associated facility record"
+    },
+    "EmissionFactorId": {
+      "type": "string",
+      "description": "Salesforce ID of the emission factor used for calculation"
+    },
+    "CalculationMethod": {
+      "type": "string",
+      "description": "Method used to calculate the emission quantity",
+      "enum": ["SpendBased", "ActivityBased", "SupplierSpecific", "AverageBased"]
+    },
+    "Description": {
+      "type": "string",
+      "description": "Additional description or notes for this emission record"
+    },
+    "CreatedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the record was created"
+    },
+    "LastModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the record was last modified"
+    }
+  },
+  "required": ["Scope", "QuantityMtCO2e", "ReportingYear"]
+}

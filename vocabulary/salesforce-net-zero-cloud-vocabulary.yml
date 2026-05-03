@@ -1,0 +1,196 @@
+name: Salesforce Net Zero Cloud Vocabulary
+description: >-
+  Domain vocabulary and taxonomy for Salesforce Net Zero Cloud, covering
+  carbon accounting concepts, GHG Protocol scopes, sustainability metrics,
+  and ESG reporting terminology.
+version: "1.0"
+created: "2026-05-02"
+modified: "2026-05-02"
+source: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+
+terms:
+  - term: Carbon Emission
+    definition: >-
+      A release of greenhouse gases into the atmosphere from a specific
+      source or activity. Measured in metric tons of CO2 equivalent (MtCO2e)
+      and classified into Scope 1, 2, or 3 based on the GHG Protocol.
+    aliases:
+      - GHG Emission
+      - Greenhouse Gas Emission
+    related:
+      - Scope
+      - Emission Factor
+      - CO2 Equivalent
+
+  - term: CO2 Equivalent (CO2e)
+    definition: >-
+      A standardized unit for measuring and comparing the warming potential
+      of different greenhouse gases. All gases are converted to the equivalent
+      amount of CO2 that would produce the same warming effect over 100 years.
+    aliases:
+      - CO2e
+      - MtCO2e
+    related:
+      - Carbon Emission
+      - Global Warming Potential
+
+  - term: Scope 1
+    definition: >-
+      Direct greenhouse gas emissions that occur from sources owned or controlled
+      by the reporting organization. Examples include combustion of fuel in
+      company-owned vehicles or on-site boilers.
+    related:
+      - GHG Protocol
+      - Carbon Emission
+
+  - term: Scope 2
+    definition: >-
+      Indirect greenhouse gas emissions associated with the purchase of electricity,
+      heat, steam, or cooling from external suppliers. The emissions physically
+      occur at facilities that generate the energy.
+    related:
+      - GHG Protocol
+      - Renewable Energy
+
+  - term: Scope 3
+    definition: >-
+      All other indirect emissions that occur in a company's value chain,
+      both upstream (supply chain, purchased goods) and downstream (product
+      use, end-of-life treatment). The most comprehensive emissions category.
+    related:
+      - GHG Protocol
+      - Supply Chain
+      - Value Chain
+
+  - term: GHG Protocol
+    definition: >-
+      The Greenhouse Gas Protocol — the world's most widely used greenhouse
+      gas accounting standard. Provides standards, guidance, tools and
+      training for businesses and governments to measure and manage climate-
+      warming emissions. Defines the Scope 1/2/3 framework.
+    aliases:
+      - Greenhouse Gas Protocol
+      - WRI GHG Protocol
+
+  - term: Emission Factor
+    definition: >-
+      A coefficient that converts activity data (energy used, distance traveled,
+      money spent) into an equivalent quantity of greenhouse gas emissions.
+      Emission factors are sourced from EPA, DEFRA, IEA, and other authorities.
+    related:
+      - Carbon Emission
+      - Calculation Method
+
+  - term: Net Zero
+    definition: >-
+      A state in which the greenhouse gases going into the atmosphere are
+      balanced by removal out of the atmosphere. Achieved by reducing emissions
+      as close to zero as possible and removing remaining emissions through
+      carbon sequestration or carbon offsets.
+    related:
+      - Carbon Neutral
+      - Carbon Offset
+      - Sustainability Goal
+
+  - term: Carbon Neutral
+    definition: >-
+      Having no net release of carbon dioxide into the atmosphere, achieved
+      by balancing carbon emissions with carbon removal or elimination of
+      carbon emissions altogether through offsetting.
+    related:
+      - Net Zero
+      - Carbon Offset
+
+  - term: Science Based Target
+    definition: >-
+      An emission reduction target aligned with what climate science says
+      is necessary to limit global warming to 1.5°C or 2°C above pre-industrial
+      levels. Validated by the Science Based Targets initiative (SBTi).
+    aliases:
+      - SBT
+    related:
+      - Net Zero
+      - GHG Protocol
+
+  - term: Sustainability Goal
+    definition: >-
+      A defined commitment to reduce environmental impact by a specific
+      amount within a target timeframe. Goals may target emissions, energy,
+      water, waste, or other sustainability dimensions.
+    types:
+      - NetZero
+      - CarbonNeutral
+      - ScienceBasedTarget
+      - RenewableEnergy
+      - WasteReduction
+      - WaterReduction
+
+  - term: ESG
+    definition: >-
+      Environmental, Social, and Governance — a framework for evaluating
+      corporate sustainability and ethical practices. The Environmental
+      component includes climate, energy, water, and waste metrics reported
+      through Net Zero Cloud.
+    aliases:
+      - Environmental Social Governance
+
+  - term: Reporting Year
+    definition: >-
+      The calendar or fiscal year covered by a sustainability data record.
+      Organizations typically report emissions annually aligned with their
+      fiscal year.
+    related:
+      - Reporting Period
+
+  - term: Activity Data
+    definition: >-
+      Quantitative data about operations that produce emissions, such as
+      kilowatt-hours of electricity consumed, liters of fuel burned, or
+      kilometers driven. Combined with emission factors to calculate CO2e.
+    related:
+      - Emission Factor
+      - Calculation Method
+
+  - term: Calculation Method
+    definition: >-
+      The approach used to convert activity data into emission quantities.
+      Net Zero Cloud supports spend-based, activity-based, supplier-specific,
+      and average-data calculation methods.
+    values:
+      - SpendBased
+      - ActivityBased
+      - SupplierSpecific
+      - AverageBased
+
+categories:
+  - name: GHG Accounting
+    description: Core greenhouse gas accounting concepts
+    terms:
+      - Carbon Emission
+      - CO2 Equivalent (CO2e)
+      - Scope 1
+      - Scope 2
+      - Scope 3
+      - GHG Protocol
+
+  - name: Sustainability Commitments
+    description: Goal-setting and commitment frameworks
+    terms:
+      - Net Zero
+      - Carbon Neutral
+      - Science Based Target
+      - Sustainability Goal
+
+  - name: Measurement
+    description: Data collection and calculation concepts
+    terms:
+      - Emission Factor
+      - Activity Data
+      - Calculation Method
+      - Reporting Year
+
+  - name: Reporting
+    description: Disclosure and reporting frameworks
+    terms:
+      - ESG
+      - Reporting Year

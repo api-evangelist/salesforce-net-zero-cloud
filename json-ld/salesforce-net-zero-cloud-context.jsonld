@@ -1,0 +1,111 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "sf": "https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/",
+    "schema": "https://schema.org/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "CarbonEmission": {
+      "@id": "sf:CarbonEmission",
+      "@type": "@id"
+    },
+    "SustainabilityGoal": {
+      "@id": "sf:SustainabilityGoal",
+      "@type": "@id"
+    },
+    "EmissionFactor": {
+      "@id": "sf:EmissionFactor",
+      "@type": "@id"
+    },
+    "EnergyConsumption": {
+      "@id": "sf:EnergyConsumption",
+      "@type": "@id"
+    },
+    "WasteDisposal": {
+      "@id": "sf:WasteDisposal",
+      "@type": "@id"
+    },
+    "WaterWithdrawal": {
+      "@id": "sf:WaterWithdrawal",
+      "@type": "@id"
+    },
+    "Scope": {
+      "@id": "sf:Scope",
+      "@type": "xsd:integer"
+    },
+    "QuantityMtCO2e": {
+      "@id": "sf:QuantityMtCO2e",
+      "@type": "xsd:decimal"
+    },
+    "ReportingYear": {
+      "@id": "sf:ReportingYear",
+      "@type": "xsd:integer"
+    },
+    "EmissionSource": {
+      "@id": "sf:EmissionSource",
+      "@type": "xsd:string"
+    },
+    "CalculationMethod": {
+      "@id": "sf:CalculationMethod",
+      "@type": "xsd:string"
+    },
+    "GoalType": {
+      "@id": "sf:GoalType",
+      "@type": "xsd:string"
+    },
+    "BaselineYear": {
+      "@id": "sf:BaselineYear",
+      "@type": "xsd:integer"
+    },
+    "TargetYear": {
+      "@id": "sf:TargetYear",
+      "@type": "xsd:integer"
+    },
+    "ReductionTargetPercentage": {
+      "@id": "sf:ReductionTargetPercentage",
+      "@type": "xsd:decimal"
+    },
+    "EnergyType": {
+      "@id": "sf:EnergyType",
+      "@type": "xsd:string"
+    },
+    "QuantityKWh": {
+      "@id": "sf:QuantityKWh",
+      "@type": "xsd:decimal"
+    },
+    "WasteType": {
+      "@id": "sf:WasteType",
+      "@type": "xsd:string"
+    },
+    "DisposalMethod": {
+      "@id": "sf:DisposalMethod",
+      "@type": "xsd:string"
+    },
+    "QuantityKg": {
+      "@id": "sf:QuantityKg",
+      "@type": "xsd:decimal"
+    },
+    "WaterSource": {
+      "@id": "sf:WaterSource",
+      "@type": "xsd:string"
+    },
+    "QuantityCubicMeters": {
+      "@id": "sf:QuantityCubicMeters",
+      "@type": "xsd:decimal"
+    },
+    "CreatedDate": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "LastModifiedDate": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "Organization": {
+      "@id": "schema:Organization"
+    },
+    "name": {
+      "@id": "schema:name"
+    }
+  }
+}

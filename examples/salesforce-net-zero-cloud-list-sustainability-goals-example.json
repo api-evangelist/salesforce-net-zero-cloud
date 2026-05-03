@@ -1,0 +1,45 @@
+{
+  "title": "List Sustainability Goals Example",
+  "description": "Example request and response for listing sustainability goals in Salesforce Net Zero Cloud",
+  "operation": "listSustainabilityGoals",
+  "method": "GET",
+  "path": "/sobjects/SustainabilityGoal",
+  "request": {
+    "headers": {
+      "Authorization": "Bearer {access_token}",
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "statusCode": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "totalSize": 2,
+      "done": true,
+      "records": [
+        {
+          "Id": "0bexx000000aABCDEF",
+          "Name": "Net Zero by 2040",
+          "GoalType": "NetZero",
+          "BaselineYear": 2019,
+          "TargetYear": 2040,
+          "ReductionTargetPercentage": 100,
+          "CurrentProgressPercentage": 18.5,
+          "Status": "Active"
+        },
+        {
+          "Id": "0bexx000000bBCDEFG",
+          "Name": "100% Renewable Energy by 2030",
+          "GoalType": "RenewableEnergy",
+          "BaselineYear": 2020,
+          "TargetYear": 2030,
+          "ReductionTargetPercentage": 100,
+          "CurrentProgressPercentage": 45.2,
+          "Status": "InProgress"
+        }
+      ]
+    }
+  }
+}

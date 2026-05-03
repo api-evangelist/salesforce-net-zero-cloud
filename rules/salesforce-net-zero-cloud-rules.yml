@@ -1,0 +1,80 @@
+rules:
+  salesforce-nzc-operation-summary-title-case:
+    description: Operation summaries must use Title Case
+    message: "Summary '{{value}}' must use Title Case"
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  salesforce-nzc-operation-id-camel-case:
+    description: OperationIds must use camelCase
+    message: "OperationId '{{value}}' must use camelCase"
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  salesforce-nzc-tags-title-case:
+    description: All tags must use Title Case
+    severity: warn
+    given: "$.paths[*][*].tags[*]"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  salesforce-nzc-emission-scope-required:
+    description: Carbon emission records should specify scope
+    message: "Carbon emission input should include Scope field"
+    severity: warn
+    given: "$.components.schemas.CarbonEmissionInput.required"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+
+  salesforce-nzc-response-200-description:
+    description: All 200 responses must have a description
+    severity: error
+    given: "$.paths[*][*].responses['200']"
+    then:
+      field: description
+      function: truthy
+
+  salesforce-nzc-contact-required:
+    description: API info must include contact details
+    severity: error
+    given: "$.info"
+    then:
+      field: contact
+      function: truthy
+
+  salesforce-nzc-version-required:
+    description: API must have a version
+    severity: error
+    given: "$.info"
+    then:
+      field: version
+      function: truthy
+
+  salesforce-nzc-servers-required:
+    description: API must define servers
+    severity: error
+    given: "$"
+    then:
+      field: servers
+      function: truthy
+
+  salesforce-nzc-security-defined:
+    description: API must define security requirements
+    severity: error
+    given: "$"
+    then:
+      field: security
+      function: truthy

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/salesforce-net-zero-cloud/blob/main/json-schema/salesforce-net-zero-cloud-sustainability-goal-schema.json",
+  "title": "Salesforce Net Zero Cloud Sustainability Goal",
+  "description": "Schema for a sustainability goal or net zero commitment in Salesforce Net Zero Cloud.",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "description": "Salesforce record ID"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Name of the sustainability goal"
+    },
+    "GoalType": {
+      "type": "string",
+      "description": "Type of sustainability goal",
+      "enum": [
+        "NetZero",
+        "CarbonNeutral",
+        "ScienceBasedTarget",
+        "RenewableEnergy",
+        "WasteReduction",
+        "WaterReduction"
+      ]
+    },
+    "BaselineYear": {
+      "type": "integer",
+      "description": "The reference year from which reductions are measured",
+      "minimum": 1990,
+      "maximum": 2100
+    },
+    "TargetYear": {
+      "type": "integer",
+      "description": "The year by which the goal should be achieved",
+      "minimum": 1990,
+      "maximum": 2100
+    },
+    "ReductionTargetPercentage": {
+      "type": "number",
+      "description": "Target reduction percentage from baseline",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "CurrentProgressPercentage": {
+      "type": "number",
+      "description": "Current progress toward the goal as a percentage",
+      "minimum": 0,
+      "maximum": 200
+    },
+    "Status": {
+      "type": "string",
+      "description": "Current status of the goal",
+      "enum": ["Active", "Achieved", "Missed", "InProgress"]
+    },
+    "Description": {
+      "type": "string",
+      "description": "Description of the goal and its scope"
+    },
+    "CreatedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the goal was created"
+    }
+  },
+  "required": ["GoalType", "BaselineYear", "TargetYear"]
+}

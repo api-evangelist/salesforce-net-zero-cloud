@@ -1,0 +1,89 @@
+{
+  "title": "Salesforce Net Zero Cloud Carbon Emission Structure",
+  "description": "Structural documentation for the Carbon Emission resource in Salesforce Net Zero Cloud.",
+  "resource": "CarbonEmission",
+  "baseUri": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/CarbonEmission",
+  "fields": [
+    {
+      "name": "Id",
+      "type": "string",
+      "required": true,
+      "description": "Unique Salesforce record ID",
+      "example": "0e8xx000000bCdAAI"
+    },
+    {
+      "name": "Scope",
+      "type": "integer",
+      "required": true,
+      "description": "GHG Protocol emission scope",
+      "enum": [1, 2, 3],
+      "example": 1
+    },
+    {
+      "name": "EmissionSource",
+      "type": "string",
+      "required": false,
+      "description": "Source activity generating the emissions",
+      "example": "Natural Gas Combustion"
+    },
+    {
+      "name": "QuantityMtCO2e",
+      "type": "number",
+      "required": true,
+      "description": "Metric tons of CO2 equivalent emissions",
+      "example": 125.7
+    },
+    {
+      "name": "ReportingYear",
+      "type": "integer",
+      "required": true,
+      "description": "Calendar or fiscal year for reporting",
+      "example": 2023
+    },
+    {
+      "name": "ReportingPeriodStartDate",
+      "type": "date",
+      "required": false,
+      "description": "Start of reporting period (ISO 8601)",
+      "example": "2023-01-01"
+    },
+    {
+      "name": "ReportingPeriodEndDate",
+      "type": "date",
+      "required": false,
+      "description": "End of reporting period (ISO 8601)",
+      "example": "2023-12-31"
+    },
+    {
+      "name": "CalculationMethod",
+      "type": "string",
+      "required": false,
+      "description": "Method used to calculate emissions",
+      "enum": ["SpendBased", "ActivityBased", "SupplierSpecific", "AverageBased"],
+      "example": "ActivityBased"
+    },
+    {
+      "name": "EmissionFactorId",
+      "type": "string",
+      "required": false,
+      "description": "Reference to the Emission Factor used for calculation"
+    }
+  ],
+  "scopes": [
+    {
+      "scope": 1,
+      "description": "Direct emissions from owned or controlled sources",
+      "examples": ["Stationary combustion", "Mobile combustion", "Fugitive emissions"]
+    },
+    {
+      "scope": 2,
+      "description": "Indirect emissions from purchased electricity, heat, or steam",
+      "examples": ["Electricity consumption", "Purchased steam", "District heating"]
+    },
+    {
+      "scope": 3,
+      "description": "All other indirect emissions in the value chain",
+      "examples": ["Business travel", "Employee commuting", "Supply chain", "Product use"]
+    }
+  ]
+}

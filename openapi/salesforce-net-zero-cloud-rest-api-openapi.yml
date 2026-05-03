@@ -1,0 +1,792 @@
+openapi: 3.1.0
+info:
+  title: Salesforce Net Zero Cloud REST API
+  description: >-
+    REST API for managing carbon emissions data, sustainability records, and
+    environmental impact tracking within Salesforce Net Zero Cloud. Provides
+    programmatic access to carbon accounting, ESG reporting, energy consumption,
+    waste management, and supply chain emissions data.
+  version: 59.0.0
+  termsOfService: https://www.salesforce.com/company/legal/agreements/
+  contact:
+    name: Salesforce Developer Support
+    url: https://developer.salesforce.com/
+  license:
+    name: Salesforce Master Subscription Agreement
+    url: https://www.salesforce.com/company/legal/agreements/
+externalDocs:
+  description: Salesforce Net Zero Cloud API Developer Guide
+  url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+servers:
+  - url: https://{instance}.my.salesforce.com/services/data/v59.0
+    description: Salesforce Production Instance
+    variables:
+      instance:
+        default: yourInstance
+        description: Your Salesforce instance identifier
+security:
+  - oauth2: []
+  - bearerAuth: []
+tags:
+  - name: Carbon Emissions
+    description: Carbon emission record management
+  - name: Energy Consumption
+    description: Energy usage tracking and management
+  - name: Sustainability Goals
+    description: Net zero and sustainability target management
+  - name: ESG Reporting
+    description: Environmental, Social, and Governance reporting
+  - name: Emission Factors
+    description: Emission factor data and calculations
+  - name: Waste Management
+    description: Waste and recycling data management
+  - name: Water Usage
+    description: Water consumption tracking
+  - name: Supply Chain
+    description: Supply chain emissions and supplier data
+paths:
+  /sobjects/CarbonEmission:
+    get:
+      operationId: listCarbonEmissions
+      summary: List Carbon Emission Records
+      description: >-
+        Retrieves a list of carbon emission records tracked in Net Zero Cloud,
+        including scope 1, 2, and 3 emissions across all reporting periods.
+      tags:
+        - Carbon Emissions
+      parameters:
+        - name: scope
+          in: query
+          required: false
+          description: Filter by emission scope (1, 2, or 3)
+          schema:
+            type: integer
+            enum: [1, 2, 3]
+        - name: reportingYear
+          in: query
+          required: false
+          description: Filter by reporting year (e.g., 2023)
+          schema:
+            type: integer
+        - name: pageSize
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 25
+      responses:
+        '200':
+          description: Successfully retrieved carbon emission records
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarbonEmissionListResponse'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createCarbonEmission
+      summary: Create Carbon Emission Record
+      description: >-
+        Creates a new carbon emission record for tracking greenhouse gas
+        emissions from a specific source or activity.
+      tags:
+        - Carbon Emissions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarbonEmissionInput'
+      responses:
+        '201':
+          description: Carbon emission record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+        '400':
+          description: Invalid request
+  /sobjects/CarbonEmission/{emissionId}:
+    get:
+      operationId: getCarbonEmission
+      summary: Get Carbon Emission Record
+      description: >-
+        Retrieves details for a specific carbon emission record including
+        scope, source, quantity, and reporting period.
+      tags:
+        - Carbon Emissions
+      parameters:
+        - name: emissionId
+          in: path
+          required: true
+          description: Salesforce ID of the carbon emission record
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved carbon emission record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CarbonEmission'
+        '404':
+          description: Record not found
+    patch:
+      operationId: updateCarbonEmission
+      summary: Update Carbon Emission Record
+      description: >-
+        Updates an existing carbon emission record's data, such as correcting
+        emission quantities or updating the reporting period.
+      tags:
+        - Carbon Emissions
+      parameters:
+        - name: emissionId
+          in: path
+          required: true
+          description: Salesforce ID of the carbon emission record
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarbonEmissionUpdateInput'
+      responses:
+        '204':
+          description: Record updated successfully
+        '404':
+          description: Record not found
+    delete:
+      operationId: deleteCarbonEmission
+      summary: Delete Carbon Emission Record
+      description: Deletes a carbon emission record from the system.
+      tags:
+        - Carbon Emissions
+      parameters:
+        - name: emissionId
+          in: path
+          required: true
+          description: Salesforce ID of the carbon emission record
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Record deleted successfully
+        '404':
+          description: Record not found
+  /sobjects/EnergyConsumption:
+    get:
+      operationId: listEnergyConsumption
+      summary: List Energy Consumption Records
+      description: >-
+        Retrieves energy consumption records including electricity, natural gas,
+        fuel, and renewable energy usage across facilities and time periods.
+      tags:
+        - Energy Consumption
+      parameters:
+        - name: energyType
+          in: query
+          required: false
+          description: Filter by energy type
+          schema:
+            type: string
+            enum:
+              - Electricity
+              - NaturalGas
+              - Fuel
+              - RenewableEnergy
+              - Steam
+        - name: reportingYear
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved energy consumption records
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnergyConsumptionListResponse'
+    post:
+      operationId: createEnergyConsumption
+      summary: Create Energy Consumption Record
+      description: >-
+        Creates a new energy consumption record for tracking energy usage
+        at a facility or from a specific source.
+      tags:
+        - Energy Consumption
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnergyConsumptionInput'
+      responses:
+        '201':
+          description: Energy consumption record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+  /sobjects/EnergyConsumption/{consumptionId}:
+    get:
+      operationId: getEnergyConsumption
+      summary: Get Energy Consumption Record
+      description: Retrieves details for a specific energy consumption record.
+      tags:
+        - Energy Consumption
+      parameters:
+        - name: consumptionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved energy consumption record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnergyConsumption'
+        '404':
+          description: Record not found
+  /sobjects/SustainabilityGoal:
+    get:
+      operationId: listSustainabilityGoals
+      summary: List Sustainability Goals
+      description: >-
+        Retrieves sustainability goals and net zero targets, including current
+        progress, baseline years, and target years.
+      tags:
+        - Sustainability Goals
+      responses:
+        '200':
+          description: Successfully retrieved sustainability goals
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SustainabilityGoalListResponse'
+    post:
+      operationId: createSustainabilityGoal
+      summary: Create Sustainability Goal
+      description: >-
+        Creates a new sustainability goal or net zero commitment with
+        target metrics and timeline.
+      tags:
+        - Sustainability Goals
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SustainabilityGoalInput'
+      responses:
+        '201':
+          description: Sustainability goal created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+  /sobjects/EmissionFactor:
+    get:
+      operationId: listEmissionFactors
+      summary: List Emission Factors
+      description: >-
+        Retrieves emission factors used to calculate CO2 equivalent emissions
+        from activity data. Includes region-specific grid emission factors,
+        fuel emission factors, and custom factors.
+      tags:
+        - Emission Factors
+      parameters:
+        - name: category
+          in: query
+          required: false
+          description: Filter by emission factor category
+          schema:
+            type: string
+        - name: region
+          in: query
+          required: false
+          description: Filter by geographic region
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved emission factors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmissionFactorListResponse'
+  /sobjects/WasteDisposal:
+    get:
+      operationId: listWasteDisposalRecords
+      summary: List Waste Disposal Records
+      description: >-
+        Retrieves waste disposal records including landfill, recycling, composting,
+        and hazardous waste disposal data.
+      tags:
+        - Waste Management
+      responses:
+        '200':
+          description: Successfully retrieved waste disposal records
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WasteDisposalListResponse'
+    post:
+      operationId: createWasteDisposalRecord
+      summary: Create Waste Disposal Record
+      description: Creates a new waste disposal record.
+      tags:
+        - Waste Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WasteDisposalInput'
+      responses:
+        '201':
+          description: Waste disposal record created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+  /sobjects/WaterWithdrawal:
+    get:
+      operationId: listWaterWithdrawalRecords
+      summary: List Water Withdrawal Records
+      description: >-
+        Retrieves water withdrawal and consumption records from various sources
+        such as municipal supply, groundwater, and rainwater.
+      tags:
+        - Water Usage
+      responses:
+        '200':
+          description: Successfully retrieved water withdrawal records
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WaterWithdrawalListResponse'
+    post:
+      operationId: createWaterWithdrawalRecord
+      summary: Create Water Withdrawal Record
+      description: Creates a new water withdrawal record.
+      tags:
+        - Water Usage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WaterWithdrawalInput'
+      responses:
+        '201':
+          description: Water withdrawal record created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+  /query:
+    get:
+      operationId: querySustainabilityData
+      summary: Query Sustainability Data
+      description: >-
+        Executes a SOQL query to retrieve sustainability data across any
+        Net Zero Cloud object with custom filtering and aggregation.
+      tags:
+        - ESG Reporting
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: SOQL query string
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Query results returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResult'
+        '400':
+          description: Invalid SOQL query
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.salesforce.com/services/oauth2/authorize
+          tokenUrl: https://login.salesforce.com/services/oauth2/token
+          scopes:
+            api: Access and manage your data
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    CarbonEmissionListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/CarbonEmissionSummary'
+    CarbonEmissionSummary:
+      type: object
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        Scope:
+          type: integer
+          enum: [1, 2, 3]
+        EmissionSource:
+          type: string
+        QuantityMtCO2e:
+          type: number
+          description: Metric tons of CO2 equivalent
+        ReportingYear:
+          type: integer
+        ReportingPeriodStartDate:
+          type: string
+          format: date
+        ReportingPeriodEndDate:
+          type: string
+          format: date
+    CarbonEmission:
+      allOf:
+        - $ref: '#/components/schemas/CarbonEmissionSummary'
+        - type: object
+          properties:
+            Description:
+              type: string
+            FacilityId:
+              type: string
+            CalculationMethod:
+              type: string
+            EmissionFactorId:
+              type: string
+            CreatedDate:
+              type: string
+              format: date-time
+            LastModifiedDate:
+              type: string
+              format: date-time
+    CarbonEmissionInput:
+      type: object
+      required:
+        - Scope
+        - QuantityMtCO2e
+        - ReportingYear
+      properties:
+        Scope:
+          type: integer
+          enum: [1, 2, 3]
+        EmissionSource:
+          type: string
+        QuantityMtCO2e:
+          type: number
+        ReportingYear:
+          type: integer
+        ReportingPeriodStartDate:
+          type: string
+          format: date
+        ReportingPeriodEndDate:
+          type: string
+          format: date
+        Description:
+          type: string
+    CarbonEmissionUpdateInput:
+      type: object
+      properties:
+        QuantityMtCO2e:
+          type: number
+        Description:
+          type: string
+        ReportingPeriodStartDate:
+          type: string
+          format: date
+        ReportingPeriodEndDate:
+          type: string
+          format: date
+    EnergyConsumptionListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnergyConsumption'
+    EnergyConsumption:
+      type: object
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        EnergyType:
+          type: string
+          enum:
+            - Electricity
+            - NaturalGas
+            - Fuel
+            - RenewableEnergy
+            - Steam
+        QuantityKWh:
+          type: number
+          description: Energy quantity in kilowatt-hours
+        FacilityId:
+          type: string
+        ReportingYear:
+          type: integer
+        ReportingPeriodStartDate:
+          type: string
+          format: date
+        ReportingPeriodEndDate:
+          type: string
+          format: date
+    EnergyConsumptionInput:
+      type: object
+      required:
+        - EnergyType
+        - QuantityKWh
+        - ReportingYear
+      properties:
+        EnergyType:
+          type: string
+        QuantityKWh:
+          type: number
+        FacilityId:
+          type: string
+        ReportingYear:
+          type: integer
+    SustainabilityGoalListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/SustainabilityGoal'
+    SustainabilityGoal:
+      type: object
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        GoalType:
+          type: string
+          enum:
+            - NetZero
+            - CarbonNeutral
+            - ScienceBasedTarget
+            - RenewableEnergy
+            - WasteReduction
+            - WaterReduction
+        BaselineYear:
+          type: integer
+        TargetYear:
+          type: integer
+        ReductionTargetPercentage:
+          type: number
+        CurrentProgressPercentage:
+          type: number
+        Status:
+          type: string
+          enum:
+            - Active
+            - Achieved
+            - Missed
+            - InProgress
+    SustainabilityGoalInput:
+      type: object
+      required:
+        - GoalType
+        - BaselineYear
+        - TargetYear
+      properties:
+        Name:
+          type: string
+        GoalType:
+          type: string
+        BaselineYear:
+          type: integer
+        TargetYear:
+          type: integer
+        ReductionTargetPercentage:
+          type: number
+    EmissionFactorListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmissionFactor'
+    EmissionFactor:
+      type: object
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        Category:
+          type: string
+        Scope:
+          type: integer
+        FactorValue:
+          type: number
+          description: CO2e factor value per unit
+        Unit:
+          type: string
+        Region:
+          type: string
+        EffectiveStartDate:
+          type: string
+          format: date
+        EffectiveEndDate:
+          type: string
+          format: date
+        Source:
+          type: string
+          description: Source authority for the emission factor (e.g., EPA, DEFRA, IEA)
+    WasteDisposalListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/WasteDisposal'
+    WasteDisposal:
+      type: object
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        WasteType:
+          type: string
+        DisposalMethod:
+          type: string
+          enum:
+            - Landfill
+            - Recycled
+            - Composted
+            - Incinerated
+            - HazardousDisposal
+        QuantityKg:
+          type: number
+        ReportingYear:
+          type: integer
+    WasteDisposalInput:
+      type: object
+      required:
+        - WasteType
+        - DisposalMethod
+        - QuantityKg
+        - ReportingYear
+      properties:
+        WasteType:
+          type: string
+        DisposalMethod:
+          type: string
+        QuantityKg:
+          type: number
+        ReportingYear:
+          type: integer
+    WaterWithdrawalListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/WaterWithdrawal'
+    WaterWithdrawal:
+      type: object
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        WaterSource:
+          type: string
+          enum:
+            - MunicipalWater
+            - Groundwater
+            - SurfaceWater
+            - Rainwater
+            - Recycled
+        QuantityCubicMeters:
+          type: number
+        FacilityId:
+          type: string
+        ReportingYear:
+          type: integer
+    WaterWithdrawalInput:
+      type: object
+      required:
+        - WaterSource
+        - QuantityCubicMeters
+        - ReportingYear
+      properties:
+        WaterSource:
+          type: string
+        QuantityCubicMeters:
+          type: number
+        FacilityId:
+          type: string
+        ReportingYear:
+          type: integer
+    CreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        success:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: string
+    QueryResult:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        nextRecordsUrl:
+          type: string
+        records:
+          type: array
+          items:
+            type: object
+            additionalProperties: true

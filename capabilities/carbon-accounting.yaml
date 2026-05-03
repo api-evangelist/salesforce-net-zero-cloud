@@ -1,0 +1,322 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Salesforce Net Zero Cloud Carbon Accounting"
+  description: >-
+    Unified workflow capability for carbon accounting and ESG reporting
+    in Salesforce Net Zero Cloud. Combines carbon emission tracking,
+    energy consumption monitoring, sustainability goal management, and
+    environmental data reporting for sustainability teams.
+  tags:
+    - Salesforce
+    - Net Zero Cloud
+    - Carbon Accounting
+    - ESG
+    - Sustainability
+    - Climate
+    - Environmental
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SALESFORCE_ACCESS_TOKEN: SALESFORCE_ACCESS_TOKEN
+
+capability:
+  consumes:
+    - import: salesforce-net-zero
+      location: ./shared/net-zero-cloud-rest-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: carbon-accounting-api
+      description: "Unified REST API for carbon accounting and ESG reporting."
+      resources:
+        - path: /v1/emissions
+          name: carbon-emissions
+          description: "Carbon emission record management (Scope 1, 2, 3)"
+          operations:
+            - method: GET
+              name: list-carbon-emissions
+              description: "List carbon emission records with optional scope and year filters"
+              call: "salesforce-net-zero.list-carbon-emissions"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-carbon-emission
+              description: "Create a new carbon emission record"
+              call: "salesforce-net-zero.create-carbon-emission"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/emissions/{emissionId}
+          name: carbon-emission
+          description: "Individual emission record operations"
+          operations:
+            - method: GET
+              name: get-carbon-emission
+              description: "Get a specific carbon emission record"
+              call: "salesforce-net-zero.get-carbon-emission"
+              with:
+                emissionId: "rest.emissionId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: PATCH
+              name: update-carbon-emission
+              description: "Update a carbon emission record"
+              call: "salesforce-net-zero.update-carbon-emission"
+              with:
+                emissionId: "rest.emissionId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-carbon-emission
+              description: "Delete a carbon emission record"
+              call: "salesforce-net-zero.delete-carbon-emission"
+              with:
+                emissionId: "rest.emissionId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/energy
+          name: energy-consumption
+          description: "Energy consumption tracking"
+          operations:
+            - method: GET
+              name: list-energy-consumption
+              description: "List energy consumption records"
+              call: "salesforce-net-zero.list-energy-consumption"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-energy-consumption
+              description: "Create an energy consumption record"
+              call: "salesforce-net-zero.create-energy-consumption"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/goals
+          name: sustainability-goals
+          description: "Net zero and sustainability goal management"
+          operations:
+            - method: GET
+              name: list-sustainability-goals
+              description: "List sustainability goals"
+              call: "salesforce-net-zero.list-sustainability-goals"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-sustainability-goal
+              description: "Create a sustainability goal"
+              call: "salesforce-net-zero.create-sustainability-goal"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/emission-factors
+          name: emission-factors
+          description: "Emission factor catalog"
+          operations:
+            - method: GET
+              name: list-emission-factors
+              description: "List emission factors"
+              call: "salesforce-net-zero.list-emission-factors"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/waste
+          name: waste-disposal
+          description: "Waste disposal tracking"
+          operations:
+            - method: GET
+              name: list-waste-disposal
+              description: "List waste disposal records"
+              call: "salesforce-net-zero.list-waste-disposal-records"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-waste-disposal
+              description: "Create a waste disposal record"
+              call: "salesforce-net-zero.create-waste-disposal-record"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/water
+          name: water-usage
+          description: "Water withdrawal and consumption tracking"
+          operations:
+            - method: GET
+              name: list-water-withdrawal
+              description: "List water withdrawal records"
+              call: "salesforce-net-zero.list-water-withdrawal-records"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-water-withdrawal
+              description: "Create a water withdrawal record"
+              call: "salesforce-net-zero.create-water-withdrawal-record"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: carbon-accounting-mcp
+      transport: http
+      description: "MCP server for AI-assisted carbon accounting and ESG reporting."
+      tools:
+        - name: list-carbon-emissions
+          description: "List carbon emission records filtered by scope and reporting year"
+          hints:
+            readOnly: true
+            idempotent: true
+            openWorld: true
+          call: "salesforce-net-zero.list-carbon-emissions"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-carbon-emission
+          description: "Get details for a specific carbon emission record"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesforce-net-zero.get-carbon-emission"
+          with:
+            emissionId: "tools.emissionId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-carbon-emission
+          description: "Create a new carbon emission record (Scope 1, 2, or 3)"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "salesforce-net-zero.create-carbon-emission"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: update-carbon-emission
+          description: "Update an existing carbon emission record"
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "salesforce-net-zero.update-carbon-emission"
+          with:
+            emissionId: "tools.emissionId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-carbon-emission
+          description: "Delete a carbon emission record"
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "salesforce-net-zero.delete-carbon-emission"
+          with:
+            emissionId: "tools.emissionId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-sustainability-goals
+          description: "List sustainability goals including net zero targets and progress"
+          hints:
+            readOnly: true
+            idempotent: true
+            openWorld: true
+          call: "salesforce-net-zero.list-sustainability-goals"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-sustainability-goal
+          description: "Create a new sustainability goal with baseline, target year, and reduction percentage"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "salesforce-net-zero.create-sustainability-goal"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-emission-factors
+          description: "List emission factors used for CO2e calculations, filterable by category and region"
+          hints:
+            readOnly: true
+            idempotent: true
+            openWorld: true
+          call: "salesforce-net-zero.list-emission-factors"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-energy-consumption
+          description: "List energy consumption records by type (electricity, gas, renewable)"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesforce-net-zero.list-energy-consumption"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-energy-consumption
+          description: "Create a new energy consumption record for a facility"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "salesforce-net-zero.create-energy-consumption"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-waste-disposal-records
+          description: "List waste disposal records by type and disposal method"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesforce-net-zero.list-waste-disposal-records"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-waste-disposal-record
+          description: "Create a new waste disposal record (landfill, recycled, composted, etc.)"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "salesforce-net-zero.create-waste-disposal-record"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-water-withdrawal-records
+          description: "List water withdrawal records by source"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesforce-net-zero.list-water-withdrawal-records"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-water-withdrawal-record
+          description: "Create a new water withdrawal record for a facility"
+          hints:
+            readOnly: false
+            destructive: false
+          call: "salesforce-net-zero.create-water-withdrawal-record"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: query-sustainability-data
+          description: "Query any sustainability data using SOQL for advanced ESG reporting"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "salesforce-net-zero.query-sustainability-data"
+          with:
+            q: "tools.q"
+          outputParameters:
+            - type: object
+              mapping: "$."
