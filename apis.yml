@@ -39,7 +39,7 @@ apis:
         url: openapi/salesforce-net-zero-cloud-rest-api-openapi.yml
       - type: Authentication
         url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm
-      - type: Rate Limits
+      - type: RateLimits
         url: https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
     contact:
       - type: Support
@@ -75,23 +75,23 @@ apis:
 common:
   - type: Developer Portal
     url: https://developer.salesforce.com/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://trailhead.salesforce.com/content/learn/modules/net-zero-cloud-basics
   - type: Authentication
     url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm
-  - type: Status
+  - type: StatusPage
     url: https://status.salesforce.com/
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.salesforce.com/company/legal/agreements/
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.salesforce.com/company/privacy/
   - type: Trailhead Learning
     url: https://trailhead.salesforce.com/content/learn/trails/get-started-with-net-zero-cloud
-  - type: Release Notes
+  - type: ReleaseNotes
     url: https://help.salesforce.com/s/articleView?id=release-notes.salesforce_release_notes.htm
   - type: Support
     url: https://help.salesforce.com/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/salesforce
   - type: Spectral Rules
     url: rules/salesforce-net-zero-cloud-rules.yml
