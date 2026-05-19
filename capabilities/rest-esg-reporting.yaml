@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesforce Net Zero Cloud REST API — ESG Reporting
+  description: 'Salesforce Net Zero Cloud REST API — ESG Reporting. 1 operations. Lead operation: Query Sustainability Data.
+    Self-contained Naftiko capability covering one Salesforce Net Zero Cloud business surface.'
+  tags:
+  - Salesforce Net Zero Cloud
+  - ESG Reporting
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESFORCE_NET_ZERO_CLOUD_API_KEY: SALESFORCE_NET_ZERO_CLOUD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-esg-reporting
+    baseUri: https://{instance}.my.salesforce.com/services/data/v59.0
+    description: Salesforce Net Zero Cloud REST API — ESG Reporting business capability. Self-contained, no shared references.
+    resources:
+    - name: query
+      path: /query
+      operations:
+      - name: querysustainabilitydata
+        method: GET
+        description: Query Sustainability Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: SOQL query string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SALESFORCE_NET_ZERO_CLOUD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-esg-reporting-rest
+    port: 8080
+    description: REST adapter for Salesforce Net Zero Cloud REST API — ESG Reporting. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/query
+      name: query
+      description: REST surface for query.
+      operations:
+      - method: GET
+        name: querysustainabilitydata
+        description: Query Sustainability Data
+        call: rest-esg-reporting.querysustainabilitydata
+        with:
+          q: rest.q
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-esg-reporting-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesforce Net Zero Cloud REST API — ESG Reporting. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: query-sustainability-data
+      description: Query Sustainability Data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-esg-reporting.querysustainabilitydata
+      with:
+        q: tools.q
+      outputParameters:
+      - type: object
+        mapping: $.

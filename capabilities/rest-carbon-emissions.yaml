@@ -1,0 +1,244 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Salesforce Net Zero Cloud REST API — Carbon Emissions
+  description: 'Salesforce Net Zero Cloud REST API — Carbon Emissions. 5 operations. Lead operation: List Carbon Emission
+    Records. Self-contained Naftiko capability covering one Salesforce Net Zero Cloud business surface.'
+  tags:
+  - Salesforce Net Zero Cloud
+  - Carbon Emissions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SALESFORCE_NET_ZERO_CLOUD_API_KEY: SALESFORCE_NET_ZERO_CLOUD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-carbon-emissions
+    baseUri: https://{instance}.my.salesforce.com/services/data/v59.0
+    description: Salesforce Net Zero Cloud REST API — Carbon Emissions business capability. Self-contained, no shared references.
+    resources:
+    - name: sobjects-CarbonEmission
+      path: /sobjects/CarbonEmission
+      operations:
+      - name: listcarbonemissions
+        method: GET
+        description: List Carbon Emission Records
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: scope
+          in: query
+          type: integer
+          description: Filter by emission scope (1, 2, or 3)
+        - name: reportingYear
+          in: query
+          type: integer
+          description: Filter by reporting year (e.g., 2023)
+        - name: pageSize
+          in: query
+          type: integer
+      - name: createcarbonemission
+        method: POST
+        description: Create Carbon Emission Record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sobjects-CarbonEmission-emissionId
+      path: /sobjects/CarbonEmission/{emissionId}
+      operations:
+      - name: getcarbonemission
+        method: GET
+        description: Get Carbon Emission Record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: emissionId
+          in: path
+          type: string
+          description: Salesforce ID of the carbon emission record
+          required: true
+      - name: updatecarbonemission
+        method: PATCH
+        description: Update Carbon Emission Record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: emissionId
+          in: path
+          type: string
+          description: Salesforce ID of the carbon emission record
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecarbonemission
+        method: DELETE
+        description: Delete Carbon Emission Record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: emissionId
+          in: path
+          type: string
+          description: Salesforce ID of the carbon emission record
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SALESFORCE_NET_ZERO_CLOUD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-carbon-emissions-rest
+    port: 8080
+    description: REST adapter for Salesforce Net Zero Cloud REST API — Carbon Emissions. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/sobjects/carbonemission
+      name: sobjects-carbonemission
+      description: REST surface for sobjects-CarbonEmission.
+      operations:
+      - method: GET
+        name: listcarbonemissions
+        description: List Carbon Emission Records
+        call: rest-carbon-emissions.listcarbonemissions
+        with:
+          scope: rest.scope
+          reportingYear: rest.reportingYear
+          pageSize: rest.pageSize
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcarbonemission
+        description: Create Carbon Emission Record
+        call: rest-carbon-emissions.createcarbonemission
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sobjects/carbonemission/{emissionid}
+      name: sobjects-carbonemission-emissionid
+      description: REST surface for sobjects-CarbonEmission-emissionId.
+      operations:
+      - method: GET
+        name: getcarbonemission
+        description: Get Carbon Emission Record
+        call: rest-carbon-emissions.getcarbonemission
+        with:
+          emissionId: rest.emissionId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatecarbonemission
+        description: Update Carbon Emission Record
+        call: rest-carbon-emissions.updatecarbonemission
+        with:
+          emissionId: rest.emissionId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecarbonemission
+        description: Delete Carbon Emission Record
+        call: rest-carbon-emissions.deletecarbonemission
+        with:
+          emissionId: rest.emissionId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-carbon-emissions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Salesforce Net Zero Cloud REST API — Carbon Emissions. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: list-carbon-emission-records
+      description: List Carbon Emission Records
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-carbon-emissions.listcarbonemissions
+      with:
+        scope: tools.scope
+        reportingYear: tools.reportingYear
+        pageSize: tools.pageSize
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-carbon-emission-record
+      description: Create Carbon Emission Record
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-carbon-emissions.createcarbonemission
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-carbon-emission-record
+      description: Get Carbon Emission Record
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-carbon-emissions.getcarbonemission
+      with:
+        emissionId: tools.emissionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-carbon-emission-record
+      description: Update Carbon Emission Record
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-carbon-emissions.updatecarbonemission
+      with:
+        emissionId: tools.emissionId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-carbon-emission-record
+      description: Delete Carbon Emission Record
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-carbon-emissions.deletecarbonemission
+      with:
+        emissionId: tools.emissionId
+      outputParameters:
+      - type: object
+        mapping: $.
