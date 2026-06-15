@@ -1,107 +1,108 @@
-# Salesforce Net Zero Cloud
+# Salesforce Net Zero Cloud (salesforce-net-zero-cloud)
 
-The Salesforce Net Zero Cloud API enables organizations to track, analyze, and report on their carbon emissions and sustainability data. It provides programmatic access to environmental data, carbon accounting, and ESG reporting capabilities including Scope 1, 2, and 3 emissions, energy consumption, waste management, water usage, and sustainability goal management.
+The Salesforce Net Zero Cloud API enables organizations to track, analyze, and report on their carbon emissions and sustainability data. It provides programmatic access to environmental data, carbon accounting, and ESG reporting capabilities including Scope 1, 2, and 3 emissions tracking, energy consumption, waste management, water usage, and sustainability goal management.
 
-**URL:** https://www.salesforce.com/products/net-zero-cloud/overview/
+**APIs.json:** [https://www.salesforce.com/products/net-zero-cloud/overview/](https://www.salesforce.com/products/net-zero-cloud/overview/)
 
-**Tags:** Carbon Accounting, Carbon Emissions, Climate, Environmental, ESG, Net Zero, Sustainability
+## Tags
+
+- Carbon Accounting
+- Carbon Emissions
+- Climate
+- Environmental
+- ESG
+- Net Zero
+- Sustainability
+
+## Timestamps
+
+- **Created:** 2024
+- **Modified:** 2026-05-19
 
 ## APIs
 
 ### Net Zero Cloud REST API
 
-REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Net Zero Cloud.
+REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Net Zero Cloud. Supports Scope 1, 2, and 3 emissions, energy consumption, waste disposal, water withdrawal, and sustainability goals.
 
-- **Base URL:** https://yourinstance.my.salesforce.com/services/data/v59.0/
-- **Documentation:** https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
-- **OpenAPI:** [salesforce-net-zero-cloud-rest-api-openapi.yml](openapi/salesforce-net-zero-cloud-rest-api-openapi.yml)
-- **Authentication:** https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm
+- **Human URL:** [https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
+- **Base URL:** `https://yourinstance.my.salesforce.com/services/data/v59.0/`
+
+#### Tags
+
+- Carbon Emissions
+- Emissions Tracking
+- REST
+- Sustainability
+
+#### Properties
+
+- [Documentation](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
+- [OpenAPI](openapi/salesforce-net-zero-cloud-rest-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/salesforce-net-zero-cloud-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/salesforce-net-zero-cloud-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Authentication](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm)
+- [Rate Limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/)
 
 ### Carbon Accounting API
 
-API endpoints for carbon footprint calculations, emission factors, and sustainability metrics aggregation.
+API endpoints for carbon footprint calculations, emission factors, and sustainability metrics aggregation. Enables retrieval of emission factors and calculation of CO2e from activity data.
 
-- **Documentation:** https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+- **Human URL:** [https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
+- **Base URL:** `https://yourinstance.my.salesforce.com/services/data/v59.0/`
+
+#### Tags
+
+- Carbon Accounting
+- Emission Factors
+- Footprint Calculation
+
+#### Properties
+
+- [Documentation](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
+- [Postman Collection](collections/salesforce-net-zero-cloud-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/salesforce-net-zero-cloud-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Sustainability Data API
 
 API for accessing and managing sustainability data including energy consumption, waste management, water usage, and renewable energy tracking.
 
-- **Documentation:** https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+- **Human URL:** [https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
+- **Base URL:** `https://yourinstance.my.salesforce.com/services/data/v59.0/`
 
-## Common Resources
+#### Tags
 
-| Type | URL |
-|------|-----|
-| Developer Portal | https://developer.salesforce.com/ |
-| Getting Started | https://trailhead.salesforce.com/content/learn/modules/net-zero-cloud-basics |
-| Authentication | https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm |
-| Status | https://status.salesforce.com/ |
-| Terms of Service | https://www.salesforce.com/company/legal/agreements/ |
-| Privacy Policy | https://www.salesforce.com/company/privacy/ |
-| Trailhead Learning | https://trailhead.salesforce.com/content/learn/trails/get-started-with-net-zero-cloud |
-| Release Notes | https://help.salesforce.com/s/articleView?id=release-notes.salesforce_release_notes.htm |
-| Support | https://help.salesforce.com/ |
-| GitHub Organization | https://github.com/salesforce |
+- Energy Consumption
+- Sustainability Data
+- Waste Management
+- Water Usage
 
-## Artifacts
+#### Properties
 
-### OpenAPI Specifications
+- [Documentation](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
+- [Postman Collection](collections/salesforce-net-zero-cloud-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/salesforce-net-zero-cloud-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
-| Spec | Description |
-|------|-------------|
-| [salesforce-net-zero-cloud-rest-api-openapi.yml](openapi/salesforce-net-zero-cloud-rest-api-openapi.yml) | Net Zero Cloud REST API — emissions, energy, goals, waste, and water |
+## Common Properties
 
-### Spectral Rules
-
-| Ruleset | Description |
-|---------|-------------|
-| [salesforce-net-zero-cloud-rules.yml](rules/salesforce-net-zero-cloud-rules.yml) | Spectral rules enforcing Net Zero Cloud API conventions |
-
-### Capabilities
-
-| Capability | Description |
-|------------|-------------|
-| [carbon-accounting.yaml](capabilities/carbon-accounting.yaml) | Unified workflow capability for carbon accounting and ESG reporting (15 tools) |
-
-**Shared Definitions:**
-
-| Shared | Description |
-|--------|-------------|
-| [net-zero-cloud-rest-api.yaml](capabilities/shared/net-zero-cloud-rest-api.yaml) | Salesforce Net Zero Cloud REST API consumed definition |
-
-### JSON Schemas
-
-| Schema | Description |
-|--------|-------------|
-| [salesforce-net-zero-cloud-carbon-emission-schema.json](json-schema/salesforce-net-zero-cloud-carbon-emission-schema.json) | Schema for Carbon Emission records (Scope 1, 2, 3) |
-| [salesforce-net-zero-cloud-sustainability-goal-schema.json](json-schema/salesforce-net-zero-cloud-sustainability-goal-schema.json) | Schema for Sustainability Goal records |
-
-### JSON Structures
-
-| Structure | Description |
-|-----------|-------------|
-| [salesforce-net-zero-cloud-carbon-emission-structure.json](json-structure/salesforce-net-zero-cloud-carbon-emission-structure.json) | Structural documentation for the Carbon Emission resource |
-
-### JSON-LD Context
-
-| Context | Description |
-|---------|-------------|
-| [salesforce-net-zero-cloud-context.jsonld](json-ld/salesforce-net-zero-cloud-context.jsonld) | JSON-LD context mapping Net Zero Cloud vocabulary to ontologies |
-
-### Examples
-
-| Example | Description |
-|---------|-------------|
-| [salesforce-net-zero-cloud-create-carbon-emission-example.json](examples/salesforce-net-zero-cloud-create-carbon-emission-example.json) | Example for creating a Scope 1 carbon emission record |
-| [salesforce-net-zero-cloud-list-sustainability-goals-example.json](examples/salesforce-net-zero-cloud-list-sustainability-goals-example.json) | Example for listing sustainability goals |
-
-### Vocabulary
-
-| Vocabulary | Description |
-|------------|-------------|
-| [salesforce-net-zero-cloud-vocabulary.yml](vocabulary/salesforce-net-zero-cloud-vocabulary.yml) | Domain vocabulary for carbon accounting and ESG concepts |
+- [Developer  Portal](https://developer.salesforce.com/)
+- [Getting Started](https://trailhead.salesforce.com/content/learn/modules/net-zero-cloud-basics)
+- [Authentication](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm)
+- [Status Page](https://status.salesforce.com/)
+- [Terms of Service](https://www.salesforce.com/company/legal/agreements/)
+- [Privacy Policy](https://www.salesforce.com/company/privacy/)
+- [Trailhead  Learning](https://trailhead.salesforce.com/content/learn/trails/get-started-with-net-zero-cloud)
+- [Release Notes](https://help.salesforce.com/s/articleView?id=release-notes.salesforce_release_notes.htm)
+- [Support](https://help.salesforce.com/)
+- [GitHub Organization](https://github.com/salesforce)
+- [Spectral  Rules](rules/salesforce-net-zero-cloud-rules.yml)
+- [Capabilities](capabilities/carbon-accounting.yaml)
+- [J S O N  Schema](json-schema/salesforce-net-zero-cloud-carbon-emission-schema.json)
+- [J S O N  Schema](json-schema/salesforce-net-zero-cloud-sustainability-goal-schema.json)
+- [J S O N- L D  Context](json-ld/salesforce-net-zero-cloud-context.jsonld)
+- [Vocabulary](vocabulary/salesforce-net-zero-cloud-vocabulary.yml)
 
 ## Maintainers
 
-- Kin Lane (kin@apievangelist.com)
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com

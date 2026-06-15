@@ -1,0 +1,2292 @@
+{
+  "item": [
+    {
+      "id": "74c0bf0b-c14d-47a3-abd0-03b72fad955a",
+      "name": "Carbon Emissions",
+      "description": {
+        "content": "Carbon emission record management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "03de64df-c725-4b60-9910-66b2dc13e977",
+          "name": "List Carbon Emission Records",
+          "request": {
+            "name": "List Carbon Emission Records",
+            "description": {
+              "content": "Retrieves a list of carbon emission records tracked in Net Zero Cloud, including scope 1, 2, and 3 emissions across all reporting periods.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "CarbonEmission"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<integer>",
+                  "description": "Filter by emission scope (1, 2, or 3)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportingYear",
+                  "value": "<integer>",
+                  "description": "Filter by reporting year (e.g., 2023)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "25"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c56aa37-83cc-434f-9421-7310e69c27f9",
+              "name": "Successfully retrieved carbon emission records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scope",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "reportingYear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 6797,\n  \"done\": true,\n  \"records\": [\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"Scope\": 1,\n      \"EmissionSource\": \"string\",\n      \"QuantityMtCO2e\": 9314.54341932527,\n      \"ReportingYear\": 3907,\n      \"ReportingPeriodStartDate\": \"1978-02-26\",\n      \"ReportingPeriodEndDate\": \"1966-06-03\"\n    },\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"Scope\": 1,\n      \"EmissionSource\": \"string\",\n      \"QuantityMtCO2e\": 4853.53572285106,\n      \"ReportingYear\": 2293,\n      \"ReportingPeriodStartDate\": \"1967-08-27\",\n      \"ReportingPeriodEndDate\": \"1965-03-11\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4dffffa-5bdb-482c-b9d7-021662bc98f9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scope",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "reportingYear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce237349-e683-4960-b0c9-ce6d18aced48",
+          "name": "Create Carbon Emission Record",
+          "request": {
+            "name": "Create Carbon Emission Record",
+            "description": {
+              "content": "Creates a new carbon emission record for tracking greenhouse gas emissions from a specific source or activity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "CarbonEmission"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Scope\": \"<integer>\",\n  \"QuantityMtCO2e\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"EmissionSource\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88bfd3dd-3d1e-429e-85db-3569eed29837",
+              "name": "Carbon emission record created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Scope\": \"<integer>\",\n  \"QuantityMtCO2e\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"EmissionSource\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f17f909-482c-43cc-8bd8-71772c24fc01",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Scope\": \"<integer>\",\n  \"QuantityMtCO2e\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"EmissionSource\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13d2ef1b-0b17-4ede-aec9-a6e403239abc",
+          "name": "Get Carbon Emission Record",
+          "request": {
+            "name": "Get Carbon Emission Record",
+            "description": {
+              "content": "Retrieves details for a specific carbon emission record including scope, source, quantity, and reporting period.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "CarbonEmission",
+                ":emissionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "emissionId",
+                  "description": "(Required) Salesforce ID of the carbon emission record"
+                },
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8160f682-af75-46e9-bdab-a9f595cfddbf",
+              "name": "Successfully retrieved carbon emission record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission",
+                    ":emissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "emissionId",
+                      "description": "(Required) Salesforce ID of the carbon emission record"
+                    },
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"string\",\n  \"Name\": \"string\",\n  \"Scope\": 2,\n  \"EmissionSource\": \"string\",\n  \"QuantityMtCO2e\": 6977.043971747793,\n  \"ReportingYear\": 3565,\n  \"ReportingPeriodStartDate\": \"1957-04-02\",\n  \"ReportingPeriodEndDate\": \"2020-01-19\",\n  \"Description\": \"string\",\n  \"FacilityId\": \"string\",\n  \"CalculationMethod\": \"string\",\n  \"EmissionFactorId\": \"string\",\n  \"CreatedDate\": \"2000-04-10T22:21:31.129Z\",\n  \"LastModifiedDate\": \"2009-10-05T14:33:35.660Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff4a9083-2ee3-4882-8fa8-be946ecaa29e",
+              "name": "Record not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission",
+                    ":emissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "emissionId",
+                      "description": "(Required) Salesforce ID of the carbon emission record"
+                    },
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4908596-478c-4e57-a059-2e7bd0e4fd1e",
+          "name": "Update Carbon Emission Record",
+          "request": {
+            "name": "Update Carbon Emission Record",
+            "description": {
+              "content": "Updates an existing carbon emission record's data, such as correcting emission quantities or updating the reporting period.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "CarbonEmission",
+                ":emissionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "emissionId",
+                  "description": "(Required) Salesforce ID of the carbon emission record"
+                },
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"QuantityMtCO2e\": \"<number>\",\n  \"Description\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4f5b0632-59dd-48cb-9fa1-b0215ac66c40",
+              "name": "Record updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission",
+                    ":emissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "emissionId",
+                      "description": "(Required) Salesforce ID of the carbon emission record"
+                    },
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"QuantityMtCO2e\": \"<number>\",\n  \"Description\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd142450-f700-4158-9b6c-d3cead0c7d70",
+              "name": "Record not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission",
+                    ":emissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "emissionId",
+                      "description": "(Required) Salesforce ID of the carbon emission record"
+                    },
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"QuantityMtCO2e\": \"<number>\",\n  \"Description\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1145bae0-c65a-4b58-bb45-9c1382c007b8",
+          "name": "Delete Carbon Emission Record",
+          "request": {
+            "name": "Delete Carbon Emission Record",
+            "description": {
+              "content": "Deletes a carbon emission record from the system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "CarbonEmission",
+                ":emissionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "emissionId",
+                  "description": "(Required) Salesforce ID of the carbon emission record"
+                },
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ebc845e9-7931-4b7e-95a3-e1cf123f603b",
+              "name": "Record deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission",
+                    ":emissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "emissionId",
+                      "description": "(Required) Salesforce ID of the carbon emission record"
+                    },
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e2eaf4db-1f73-4d30-99ab-4655db485441",
+              "name": "Record not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission",
+                    ":emissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "emissionId",
+                      "description": "(Required) Salesforce ID of the carbon emission record"
+                    },
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "04c67524-8e29-4fd2-9963-64e42df4434c",
+      "name": "Energy Consumption",
+      "description": {
+        "content": "Energy usage tracking and management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5649776d-9cce-41fa-979a-4c80eace4353",
+          "name": "List Energy Consumption Records",
+          "request": {
+            "name": "List Energy Consumption Records",
+            "description": {
+              "content": "Retrieves energy consumption records including electricity, natural gas, fuel, and renewable energy usage across facilities and time periods.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "EnergyConsumption"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "energyType",
+                  "value": "<string>",
+                  "description": "Filter by energy type"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportingYear",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "05e96db3-221e-4b07-a457-f8f745cc1043",
+              "name": "Successfully retrieved energy consumption records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "EnergyConsumption"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "energyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportingYear",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 3594,\n  \"done\": false,\n  \"records\": [\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"EnergyType\": \"Fuel\",\n      \"QuantityKWh\": 300.4415904946023,\n      \"FacilityId\": \"string\",\n      \"ReportingYear\": 7048,\n      \"ReportingPeriodStartDate\": \"1957-05-17\",\n      \"ReportingPeriodEndDate\": \"1985-08-28\"\n    },\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"EnergyType\": \"Fuel\",\n      \"QuantityKWh\": 8606.497796196547,\n      \"FacilityId\": \"string\",\n      \"ReportingYear\": 1345,\n      \"ReportingPeriodStartDate\": \"1965-05-01\",\n      \"ReportingPeriodEndDate\": \"1980-03-09\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dc9d91e-9f10-4ca9-a332-0b2c7b2e18c3",
+          "name": "Create Energy Consumption Record",
+          "request": {
+            "name": "Create Energy Consumption Record",
+            "description": {
+              "content": "Creates a new energy consumption record for tracking energy usage at a facility or from a specific source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "EnergyConsumption"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"EnergyType\": \"<string>\",\n  \"QuantityKWh\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"FacilityId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69624880-952c-4a49-8017-674fa0b7acfa",
+              "name": "Energy consumption record created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "EnergyConsumption"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"EnergyType\": \"<string>\",\n  \"QuantityKWh\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"FacilityId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf5bd5fe-fa79-4aad-bc3f-a07dfcb5db38",
+          "name": "Get Energy Consumption Record",
+          "request": {
+            "name": "Get Energy Consumption Record",
+            "description": {
+              "content": "Retrieves details for a specific energy consumption record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "EnergyConsumption",
+                ":consumptionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "consumptionId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f41500f-7cee-483b-b93e-5a5e557e08ec",
+              "name": "Successfully retrieved energy consumption record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "EnergyConsumption",
+                    ":consumptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consumptionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"string\",\n  \"Name\": \"string\",\n  \"EnergyType\": \"NaturalGas\",\n  \"QuantityKWh\": 6038.606478191095,\n  \"FacilityId\": \"string\",\n  \"ReportingYear\": 224,\n  \"ReportingPeriodStartDate\": \"1972-10-02\",\n  \"ReportingPeriodEndDate\": \"1963-10-04\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e57f136-e3ed-460f-9740-eccfdf68522f",
+              "name": "Record not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "EnergyConsumption",
+                    ":consumptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consumptionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1c9447da-8661-42ae-bb52-be9e9e15749a",
+      "name": "Sustainability Goals",
+      "description": {
+        "content": "Net zero and sustainability target management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7502174a-f208-46f6-abf4-4fde8c9addc8",
+          "name": "List Sustainability Goals",
+          "request": {
+            "name": "List Sustainability Goals",
+            "description": {
+              "content": "Retrieves sustainability goals and net zero targets, including current progress, baseline years, and target years.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "SustainabilityGoal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8dfce56e-2585-426f-99c0-8315817c44bc",
+              "name": "Successfully retrieved sustainability goals",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "SustainabilityGoal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 4782,\n  \"done\": false,\n  \"records\": [\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"GoalType\": \"RenewableEnergy\",\n      \"BaselineYear\": 8061,\n      \"TargetYear\": 8909,\n      \"ReductionTargetPercentage\": 3171.315570078983,\n      \"CurrentProgressPercentage\": 7551.078167165032,\n      \"Status\": \"InProgress\"\n    },\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"GoalType\": \"CarbonNeutral\",\n      \"BaselineYear\": 5564,\n      \"TargetYear\": 7631,\n      \"ReductionTargetPercentage\": 8208.806941347002,\n      \"CurrentProgressPercentage\": 4566.676889936886,\n      \"Status\": \"InProgress\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "662cf11b-adad-49d8-8cb8-61ca265a13f7",
+          "name": "Create Sustainability Goal",
+          "request": {
+            "name": "Create Sustainability Goal",
+            "description": {
+              "content": "Creates a new sustainability goal or net zero commitment with target metrics and timeline.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "SustainabilityGoal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"GoalType\": \"<string>\",\n  \"BaselineYear\": \"<integer>\",\n  \"TargetYear\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ReductionTargetPercentage\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bff1b875-a555-47b0-b858-4b26cffec71f",
+              "name": "Sustainability goal created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "SustainabilityGoal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"GoalType\": \"<string>\",\n  \"BaselineYear\": \"<integer>\",\n  \"TargetYear\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ReductionTargetPercentage\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "edb8b1d7-bd55-4119-8d9f-1b2c017cf8b4",
+      "name": "ESG Reporting",
+      "description": {
+        "content": "Environmental, Social, and Governance reporting",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "24cfc88b-cc27-464e-a6f5-734a902d9a8b",
+          "name": "Query Sustainability Data",
+          "request": {
+            "name": "Query Sustainability Data",
+            "description": {
+              "content": "Executes a SOQL query to retrieve sustainability data across any Net Zero Cloud object with custom filtering and aggregation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) SOQL query string"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "efda346a-2460-4ada-ae77-0b56687a401a",
+              "name": "Query results returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 9715,\n  \"done\": true,\n  \"nextRecordsUrl\": \"string\",\n  \"records\": [\n    {\n      \"key_0\": false,\n      \"key_1\": 1255,\n      \"key_2\": \"string\",\n      \"key_3\": false\n    },\n    {\n      \"key_0\": 5561,\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcde6f22-966e-4be1-9367-d0137e732a57",
+              "name": "Invalid SOQL query",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bb162968-a5ca-42e8-9274-9936dc936023",
+      "name": "Emission Factors",
+      "description": {
+        "content": "Emission factor data and calculations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34588c20-9366-4bbe-9177-d1e77543ac7e",
+          "name": "List Emission Factors",
+          "request": {
+            "name": "List Emission Factors",
+            "description": {
+              "content": "Retrieves emission factors used to calculate CO2 equivalent emissions from activity data. Includes region-specific grid emission factors, fuel emission factors, and custom factors.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "EmissionFactor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Filter by emission factor category"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "Filter by geographic region"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "892b0a38-6800-40bb-bc23-c59ca6be7d28",
+              "name": "Successfully retrieved emission factors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "EmissionFactor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 1239,\n  \"done\": true,\n  \"records\": [\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"Category\": \"string\",\n      \"Scope\": 3089,\n      \"FactorValue\": 1578.9839043529853,\n      \"Unit\": \"string\",\n      \"Region\": \"string\",\n      \"EffectiveStartDate\": \"2017-04-15\",\n      \"EffectiveEndDate\": \"1966-06-21\",\n      \"Source\": \"string\"\n    },\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"Category\": \"string\",\n      \"Scope\": 9257,\n      \"FactorValue\": 9446.776804776424,\n      \"Unit\": \"string\",\n      \"Region\": \"string\",\n      \"EffectiveStartDate\": \"2021-05-07\",\n      \"EffectiveEndDate\": \"2008-12-11\",\n      \"Source\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "73330761-05f4-48b1-b190-10ce1c0ee42d",
+      "name": "Waste Management",
+      "description": {
+        "content": "Waste and recycling data management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a0aeb84e-bcc1-48d4-ba1c-15c2e55bacb6",
+          "name": "List Waste Disposal Records",
+          "request": {
+            "name": "List Waste Disposal Records",
+            "description": {
+              "content": "Retrieves waste disposal records including landfill, recycling, composting, and hazardous waste disposal data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "WasteDisposal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bea4b7eb-a64f-4fa6-9859-3469d1b19a3f",
+              "name": "Successfully retrieved waste disposal records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "WasteDisposal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 8257,\n  \"done\": true,\n  \"records\": [\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"WasteType\": \"string\",\n      \"DisposalMethod\": \"HazardousDisposal\",\n      \"QuantityKg\": 9966.199565535679,\n      \"ReportingYear\": 5898\n    },\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"WasteType\": \"string\",\n      \"DisposalMethod\": \"Incinerated\",\n      \"QuantityKg\": 336.70578233563566,\n      \"ReportingYear\": 5286\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25e23284-6a68-4849-b750-6efa313e6983",
+          "name": "Create Waste Disposal Record",
+          "request": {
+            "name": "Create Waste Disposal Record",
+            "description": {
+              "content": "Creates a new waste disposal record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "WasteDisposal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"WasteType\": \"<string>\",\n  \"DisposalMethod\": \"<string>\",\n  \"QuantityKg\": \"<number>\",\n  \"ReportingYear\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0ef3608a-7c1b-41de-8c16-a0af3a5e598c",
+              "name": "Waste disposal record created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "WasteDisposal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"WasteType\": \"<string>\",\n  \"DisposalMethod\": \"<string>\",\n  \"QuantityKg\": \"<number>\",\n  \"ReportingYear\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "86170a97-3077-4194-bc00-f196540b527b",
+      "name": "Water Usage",
+      "description": {
+        "content": "Water consumption tracking",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "900e716c-bb47-4027-8b32-d6d5b22c7011",
+          "name": "List Water Withdrawal Records",
+          "request": {
+            "name": "List Water Withdrawal Records",
+            "description": {
+              "content": "Retrieves water withdrawal and consumption records from various sources such as municipal supply, groundwater, and rainwater.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "WaterWithdrawal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5db67e81-3ac0-4a86-9729-b88c0f3dbc31",
+              "name": "Successfully retrieved water withdrawal records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "WaterWithdrawal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 1887,\n  \"done\": false,\n  \"records\": [\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"WaterSource\": \"MunicipalWater\",\n      \"QuantityCubicMeters\": 6408.706803789647,\n      \"FacilityId\": \"string\",\n      \"ReportingYear\": 8051\n    },\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"WaterSource\": \"Groundwater\",\n      \"QuantityCubicMeters\": 6226.334736224012,\n      \"FacilityId\": \"string\",\n      \"ReportingYear\": 7034\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a595327-cc96-4646-83ca-e0ea6f12045f",
+          "name": "Create Water Withdrawal Record",
+          "request": {
+            "name": "Create Water Withdrawal Record",
+            "description": {
+              "content": "Creates a new water withdrawal record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "WaterWithdrawal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"WaterSource\": \"<string>\",\n  \"QuantityCubicMeters\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"FacilityId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "97971b0c-c531-4ddd-8865-080666a47757",
+              "name": "Water withdrawal record created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "WaterWithdrawal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"WaterSource\": \"<string>\",\n  \"QuantityCubicMeters\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"FacilityId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "efc84e12-5193-48c8-bd65-523f6b2db6f1",
+      "name": "Supply Chain",
+      "description": {
+        "content": "Supply chain emissions and supplier data",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Salesforce instance identifier",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "yourInstance",
+      "key": "instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{instance}}.my.salesforce.com/services/data/v59.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fc18804c-d3b1-4e87-b744-30002f28ac7e",
+    "name": "Salesforce Net Zero Cloud REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.\n\nContact Support:\n Name: Salesforce Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
