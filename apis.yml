@@ -72,7 +72,7 @@ apis:
       - type: Documentation
         url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
 common:
-  - type: Developer Portal
+  - type: DeveloperPortal
     url: https://developer.salesforce.com/
   - type: GettingStarted
     url: https://trailhead.salesforce.com/content/learn/modules/net-zero-cloud-basics
@@ -92,17 +92,17 @@ common:
     url: https://help.salesforce.com/
   - type: GitHubOrganization
     url: https://github.com/salesforce
-  - type: Spectral Rules
+  - type: SpectralRules
     url: rules/salesforce-net-zero-cloud-rules.yml
   - type: Capabilities
     url: capabilities/carbon-accounting.yaml
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/salesforce-net-zero-cloud-carbon-emission-schema.json
     title: Carbon Emission Schema
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/salesforce-net-zero-cloud-sustainability-goal-schema.json
     title: Sustainability Goal Schema
-  - type: JSON-LD Context
+  - type: JSONLDContext
     url: json-ld/salesforce-net-zero-cloud-context.jsonld
   - type: Vocabulary
     url: vocabulary/salesforce-net-zero-cloud-vocabulary.yml
