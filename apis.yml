@@ -72,6 +72,12 @@ apis:
       - type: Documentation
         url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
 common:
+  - type: Authentication
+    url: authentication/salesforce-net-zero-cloud-authentication.yml
+  - type: OAuthScopes
+    url: scopes/salesforce-net-zero-cloud-scopes.yml
+  - url: https://developer.salesforce.com/blogs/feed
+    type: Blog
   - type: DeveloperPortal
     url: https://developer.salesforce.com/
   - type: GettingStarted
