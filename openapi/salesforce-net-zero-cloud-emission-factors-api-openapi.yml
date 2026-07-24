@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: Salesforce Net Zero Cloud REST Carbon Emissions Emission Factors API
+  description: REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.
+  version: 59.0.0
+  termsOfService: https://www.salesforce.com/company/legal/agreements/
+  contact:
+    name: Salesforce Developer Support
+    url: https://developer.salesforce.com/
+  license:
+    name: Salesforce Master Subscription Agreement
+    url: https://www.salesforce.com/company/legal/agreements/
+servers:
+- url: https://{instance}.my.salesforce.com/services/data/v59.0
+  description: Salesforce Production Instance
+  variables:
+    instance:
+      default: yourInstance
+      description: Your Salesforce instance identifier
+security:
+- oauth2: []
+- bearerAuth: []
+tags:
+- name: Emission Factors
+  description: Emission factor data and calculations
+paths:
+  /sobjects/EmissionFactor:
+    get:
+      operationId: listEmissionFactors
+      summary: List Emission Factors
+      description: Retrieves emission factors used to calculate CO2 equivalent emissions from activity data. Includes region-specific grid emission factors, fuel emission factors, and custom factors.
+      tags:
+      - Emission Factors
+      parameters:
+      - name: category
+        in: query
+        required: false
+        description: Filter by emission factor category
+        schema:
+          type: string
+      - name: region
+        in: query
+        required: false
+        description: Filter by geographic region
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved emission factors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmissionFactorListResponse'
+components:
+  schemas:
+    EmissionFactor:
+      type: object
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        Category:
+          type: string
+        Scope:
+          type: integer
+        FactorValue:
+          type: number
+          description: CO2e factor value per unit
+        Unit:
+          type: string
+        Region:
+          type: string
+        EffectiveStartDate:
+          type: string
+          format: date
+        EffectiveEndDate:
+          type: string
+          format: date
+        Source:
+          type: string
+          description: Source authority for the emission factor (e.g., EPA, DEFRA, IEA)
+    EmissionFactorListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmissionFactor'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.salesforce.com/services/oauth2/authorize
+          tokenUrl: https://login.salesforce.com/services/oauth2/token
+          scopes:
+            api: Access and manage your data
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: Salesforce Net Zero Cloud API Developer Guide
+  url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/

@@ -1,0 +1,81 @@
+openapi: 3.1.0
+info:
+  title: Salesforce Net Zero Cloud REST Carbon Emissions ESG Reporting API
+  description: REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.
+  version: 59.0.0
+  termsOfService: https://www.salesforce.com/company/legal/agreements/
+  contact:
+    name: Salesforce Developer Support
+    url: https://developer.salesforce.com/
+  license:
+    name: Salesforce Master Subscription Agreement
+    url: https://www.salesforce.com/company/legal/agreements/
+servers:
+- url: https://{instance}.my.salesforce.com/services/data/v59.0
+  description: Salesforce Production Instance
+  variables:
+    instance:
+      default: yourInstance
+      description: Your Salesforce instance identifier
+security:
+- oauth2: []
+- bearerAuth: []
+tags:
+- name: ESG Reporting
+  description: Environmental, Social, and Governance reporting
+paths:
+  /query:
+    get:
+      operationId: querySustainabilityData
+      summary: Query Sustainability Data
+      description: Executes a SOQL query to retrieve sustainability data across any Net Zero Cloud object with custom filtering and aggregation.
+      tags:
+      - ESG Reporting
+      parameters:
+      - name: q
+        in: query
+        required: true
+        description: SOQL query string
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Query results returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResult'
+        '400':
+          description: Invalid SOQL query
+components:
+  schemas:
+    QueryResult:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        nextRecordsUrl:
+          type: string
+        records:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.salesforce.com/services/oauth2/authorize
+          tokenUrl: https://login.salesforce.com/services/oauth2/token
+          scopes:
+            api: Access and manage your data
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: Salesforce Net Zero Cloud API Developer Guide
+  url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/

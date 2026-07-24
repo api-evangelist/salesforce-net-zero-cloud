@@ -1,0 +1,136 @@
+openapi: 3.1.0
+info:
+  title: Salesforce Net Zero Cloud REST Carbon Emissions Waste Management API
+  description: REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.
+  version: 59.0.0
+  termsOfService: https://www.salesforce.com/company/legal/agreements/
+  contact:
+    name: Salesforce Developer Support
+    url: https://developer.salesforce.com/
+  license:
+    name: Salesforce Master Subscription Agreement
+    url: https://www.salesforce.com/company/legal/agreements/
+servers:
+- url: https://{instance}.my.salesforce.com/services/data/v59.0
+  description: Salesforce Production Instance
+  variables:
+    instance:
+      default: yourInstance
+      description: Your Salesforce instance identifier
+security:
+- oauth2: []
+- bearerAuth: []
+tags:
+- name: Waste Management
+  description: Waste and recycling data management
+paths:
+  /sobjects/WasteDisposal:
+    get:
+      operationId: listWasteDisposalRecords
+      summary: List Waste Disposal Records
+      description: Retrieves waste disposal records including landfill, recycling, composting, and hazardous waste disposal data.
+      tags:
+      - Waste Management
+      responses:
+        '200':
+          description: Successfully retrieved waste disposal records
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WasteDisposalListResponse'
+    post:
+      operationId: createWasteDisposalRecord
+      summary: Create Waste Disposal Record
+      description: Creates a new waste disposal record.
+      tags:
+      - Waste Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WasteDisposalInput'
+      responses:
+        '201':
+          description: Waste disposal record created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+components:
+  schemas:
+    WasteDisposal:
+      type: object
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        WasteType:
+          type: string
+        DisposalMethod:
+          type: string
+          enum:
+          - Landfill
+          - Recycled
+          - Composted
+          - Incinerated
+          - HazardousDisposal
+        QuantityKg:
+          type: number
+        ReportingYear:
+          type: integer
+    WasteDisposalListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/WasteDisposal'
+    WasteDisposalInput:
+      type: object
+      required:
+      - WasteType
+      - DisposalMethod
+      - QuantityKg
+      - ReportingYear
+      properties:
+        WasteType:
+          type: string
+        DisposalMethod:
+          type: string
+        QuantityKg:
+          type: number
+        ReportingYear:
+          type: integer
+    CreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        success:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.salesforce.com/services/oauth2/authorize
+          tokenUrl: https://login.salesforce.com/services/oauth2/token
+          scopes:
+            api: Access and manage your data
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: Salesforce Net Zero Cloud API Developer Guide
+  url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/

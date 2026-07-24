@@ -1,0 +1,182 @@
+openapi: 3.1.0
+info:
+  title: Salesforce Net Zero Cloud REST Carbon Emissions Energy Consumption API
+  description: REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.
+  version: 59.0.0
+  termsOfService: https://www.salesforce.com/company/legal/agreements/
+  contact:
+    name: Salesforce Developer Support
+    url: https://developer.salesforce.com/
+  license:
+    name: Salesforce Master Subscription Agreement
+    url: https://www.salesforce.com/company/legal/agreements/
+servers:
+- url: https://{instance}.my.salesforce.com/services/data/v59.0
+  description: Salesforce Production Instance
+  variables:
+    instance:
+      default: yourInstance
+      description: Your Salesforce instance identifier
+security:
+- oauth2: []
+- bearerAuth: []
+tags:
+- name: Energy Consumption
+  description: Energy usage tracking and management
+paths:
+  /sobjects/EnergyConsumption:
+    get:
+      operationId: listEnergyConsumption
+      summary: List Energy Consumption Records
+      description: Retrieves energy consumption records including electricity, natural gas, fuel, and renewable energy usage across facilities and time periods.
+      tags:
+      - Energy Consumption
+      parameters:
+      - name: energyType
+        in: query
+        required: false
+        description: Filter by energy type
+        schema:
+          type: string
+          enum:
+          - Electricity
+          - NaturalGas
+          - Fuel
+          - RenewableEnergy
+          - Steam
+      - name: reportingYear
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully retrieved energy consumption records
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnergyConsumptionListResponse'
+    post:
+      operationId: createEnergyConsumption
+      summary: Create Energy Consumption Record
+      description: Creates a new energy consumption record for tracking energy usage at a facility or from a specific source.
+      tags:
+      - Energy Consumption
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnergyConsumptionInput'
+      responses:
+        '201':
+          description: Energy consumption record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+  /sobjects/EnergyConsumption/{consumptionId}:
+    get:
+      operationId: getEnergyConsumption
+      summary: Get Energy Consumption Record
+      description: Retrieves details for a specific energy consumption record.
+      tags:
+      - Energy Consumption
+      parameters:
+      - name: consumptionId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved energy consumption record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnergyConsumption'
+        '404':
+          description: Record not found
+components:
+  schemas:
+    EnergyConsumptionInput:
+      type: object
+      required:
+      - EnergyType
+      - QuantityKWh
+      - ReportingYear
+      properties:
+        EnergyType:
+          type: string
+        QuantityKWh:
+          type: number
+        FacilityId:
+          type: string
+        ReportingYear:
+          type: integer
+    EnergyConsumption:
+      type: object
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        EnergyType:
+          type: string
+          enum:
+          - Electricity
+          - NaturalGas
+          - Fuel
+          - RenewableEnergy
+          - Steam
+        QuantityKWh:
+          type: number
+          description: Energy quantity in kilowatt-hours
+        FacilityId:
+          type: string
+        ReportingYear:
+          type: integer
+        ReportingPeriodStartDate:
+          type: string
+          format: date
+        ReportingPeriodEndDate:
+          type: string
+          format: date
+    EnergyConsumptionListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnergyConsumption'
+    CreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        success:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.salesforce.com/services/oauth2/authorize
+          tokenUrl: https://login.salesforce.com/services/oauth2/token
+          scopes:
+            api: Access and manage your data
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: Salesforce Net Zero Cloud API Developer Guide
+  url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
