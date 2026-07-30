@@ -4,6 +4,19 @@ description: >-
   sustainability data. It provides programmatic access to environmental data, carbon accounting, and ESG reporting
   capabilities including Scope 1, 2, and 3 emissions tracking, energy consumption, waste management, water usage, and
   sustainability goal management.
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://www.salesforce.com/content/dam/web/en_us/www/images/logo-salesforce.svg
 url: https://www.salesforce.com/products/net-zero-cloud/overview/
 created: '2024'
@@ -18,60 +31,162 @@ tags:
   - Net Zero
   - Sustainability
 apis:
-  - name: Net Zero Cloud REST API
-    description: >-
-      REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Net
-      Zero Cloud. Supports Scope 1, 2, and 3 emissions, energy consumption, waste disposal, water withdrawal, and
-      sustainability goals.
-    image: https://www.salesforce.com/content/dam/web/en_us/www/images/logo-salesforce.svg
-    humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
-    baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
-    tags:
-      - Carbon Emissions
-      - Emissions Tracking
-      - REST
-      - Sustainability
-    properties:
-      - type: Documentation
-        url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
-      - type: OpenAPI
-        url: openapi/salesforce-net-zero-cloud-rest-api-openapi.yml
-      - type: Authentication
-        url: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm
-      - type: RateLimits
-        url: >-
-          https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
-    contact:
-      - type: Support
-        url: https://help.salesforce.com/
-  - name: Carbon Accounting API
-    description: >-
-      API endpoints for carbon footprint calculations, emission factors, and sustainability metrics aggregation. Enables
-      retrieval of emission factors and calculation of CO2e from activity data.
-    humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
-    baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
-    tags:
-      - Carbon Accounting
-      - Emission Factors
-      - Footprint Calculation
-    properties:
-      - type: Documentation
-        url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
-  - name: Sustainability Data API
-    description: >-
-      API for accessing and managing sustainability data including energy consumption, waste management, water usage,
-      and renewable energy tracking.
-    humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
-    baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
-    tags:
-      - Energy Consumption
-      - Sustainability Data
-      - Waste Management
-      - Water Usage
-    properties:
-      - type: Documentation
-        url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+- name: Carbon Accounting API
+  description: >-
+    API endpoints for carbon footprint calculations, emission factors, and sustainability metrics aggregation.
+    Enables retrieval of emission factors and calculation of CO2e from activity data.
+  humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
+  tags:
+  - Carbon Accounting
+  - Emission Factors
+  - Footprint Calculation
+  properties:
+  - type: Documentation
+    url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+- name: Sustainability Data API
+  description: >-
+    API for accessing and managing sustainability data including energy consumption, waste management,
+    water usage, and renewable energy tracking.
+  humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
+  tags:
+  - Energy Consumption
+  - Sustainability Data
+  - Waste Management
+  - Water Usage
+  properties:
+  - type: Documentation
+    url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+- aid: salesforce-net-zero-cloud:salesforce-net-zero-cloud-carbon-emissions-api
+  name: Salesforce Net Zero Cloud Carbon Emissions API
+  description: Carbon emission record management
+  humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
+  tags:
+  - Carbon Emissions
+  properties:
+  - type: OpenAPI
+    url: openapi/salesforce-net-zero-cloud-carbon-emissions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  - type: Authentication
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm
+  - type: RateLimits
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
+- aid: salesforce-net-zero-cloud:salesforce-net-zero-cloud-emission-factors-api
+  name: Salesforce Net Zero Cloud Emission Factors API
+  description: Emission factor data and calculations
+  humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
+  tags:
+  - Emission Factors
+  properties:
+  - type: OpenAPI
+    url: openapi/salesforce-net-zero-cloud-emission-factors-api-openapi.yml
+  - type: Documentation
+    url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  - type: Authentication
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm
+  - type: RateLimits
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
+- aid: salesforce-net-zero-cloud:salesforce-net-zero-cloud-energy-consumption-api
+  name: Salesforce Net Zero Cloud Energy Consumption API
+  description: Energy usage tracking and management
+  humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
+  tags:
+  - Energy Consumption
+  properties:
+  - type: OpenAPI
+    url: openapi/salesforce-net-zero-cloud-energy-consumption-api-openapi.yml
+  - type: Documentation
+    url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  - type: Authentication
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm
+  - type: RateLimits
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
+- aid: salesforce-net-zero-cloud:salesforce-net-zero-cloud-esg-reporting-api
+  name: Salesforce Net Zero Cloud ESG Reporting API
+  description: Environmental, Social, and Governance reporting
+  humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
+  tags:
+  - ESG Reporting
+  properties:
+  - type: OpenAPI
+    url: openapi/salesforce-net-zero-cloud-esg-reporting-api-openapi.yml
+  - type: Documentation
+    url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  - type: Authentication
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm
+  - type: RateLimits
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
+- aid: salesforce-net-zero-cloud:salesforce-net-zero-cloud-sustainability-goals-api
+  name: Salesforce Net Zero Cloud Sustainability Goals API
+  description: Net zero and sustainability target management
+  humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
+  tags:
+  - Sustainability Goals
+  properties:
+  - type: OpenAPI
+    url: openapi/salesforce-net-zero-cloud-sustainability-goals-api-openapi.yml
+  - type: Documentation
+    url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  - type: Authentication
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm
+  - type: RateLimits
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
+- aid: salesforce-net-zero-cloud:salesforce-net-zero-cloud-waste-management-api
+  name: Salesforce Net Zero Cloud Waste Management API
+  description: Waste and recycling data management
+  humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
+  tags:
+  - Waste Management
+  properties:
+  - type: OpenAPI
+    url: openapi/salesforce-net-zero-cloud-waste-management-api-openapi.yml
+  - type: Documentation
+    url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  - type: Authentication
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm
+  - type: RateLimits
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
+- aid: salesforce-net-zero-cloud:salesforce-net-zero-cloud-water-usage-api
+  name: Salesforce Net Zero Cloud Water Usage API
+  description: Water consumption tracking
+  humanURL: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  baseURL: https://yourinstance.my.salesforce.com/services/data/v59.0/
+  tags:
+  - Water Usage
+  properties:
+  - type: OpenAPI
+    url: openapi/salesforce-net-zero-cloud-water-usage-api-openapi.yml
+  - type: Documentation
+    url: https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/
+  - type: Authentication
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm
+  - type: RateLimits
+    url: >-
+      https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/salesforce-net-zero-cloud/overview
   - type: AgenticAccess
     url: agentic-access/salesforce-net-zero-cloud-agentic-access.yml
   - type: DomainSecurity
