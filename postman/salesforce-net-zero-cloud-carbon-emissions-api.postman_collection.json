@@ -1,0 +1,789 @@
+{
+  "info": {
+    "_postman_id": "ea0dd74e-10c7-454f-a0f3-76cd6ad82379",
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions API",
+    "description": "REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.\n\nContact Support:\n Name: Salesforce Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:19.000Z",
+    "updatedAt": "2026-07-28T02:50:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ea0dd74e-10c7-454f-a0f3-76cd6ad82379"
+  },
+  "item": [
+    {
+      "name": "sobjects",
+      "item": [
+        {
+          "name": "CarbonEmission",
+          "item": [
+            {
+              "name": "{emissionId}",
+              "item": [
+                {
+                  "name": "Get Carbon Emission Record",
+                  "id": "e6079e31-84d3-4d5f-8526-15d5322a9560",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/CarbonEmission/:emissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "CarbonEmission",
+                        ":emissionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "dadd939c-0ed4-468e-bcea-4f0eccf923b8",
+                          "key": "emissionId",
+                          "value": "<string>",
+                          "description": "(Required) Salesforce ID of the carbon emission record"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves details for a specific carbon emission record including scope, source, quantity, and reporting period."
+                  },
+                  "response": [
+                    {
+                      "id": "f630c913-b0c1-41b6-8311-842898330050",
+                      "name": "Successfully retrieved carbon emission record",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sobjects/CarbonEmission/:emissionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sobjects",
+                            "CarbonEmission",
+                            ":emissionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "emissionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Scope\": 1,\n  \"EmissionSource\": \"<string>\",\n  \"QuantityMtCO2e\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\",\n  \"Description\": \"<string>\",\n  \"FacilityId\": \"<string>\",\n  \"CalculationMethod\": \"<string>\",\n  \"EmissionFactorId\": \"<string>\",\n  \"CreatedDate\": \"<dateTime>\",\n  \"LastModifiedDate\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:50:19.000Z",
+                      "updatedAt": "2026-07-28T02:50:19.000Z",
+                      "uid": "35240-f630c913-b0c1-41b6-8311-842898330050"
+                    },
+                    {
+                      "id": "12a3615b-6870-4b51-b2e3-487eff4cfab7",
+                      "name": "Record not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sobjects/CarbonEmission/:emissionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sobjects",
+                            "CarbonEmission",
+                            ":emissionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "emissionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:50:19.000Z",
+                      "updatedAt": "2026-07-28T02:50:19.000Z",
+                      "uid": "35240-12a3615b-6870-4b51-b2e3-487eff4cfab7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:50:19.000Z",
+                  "updatedAt": "2026-07-28T02:50:19.000Z",
+                  "uid": "35240-e6079e31-84d3-4d5f-8526-15d5322a9560"
+                },
+                {
+                  "name": "Update Carbon Emission Record",
+                  "id": "84e7aa3b-083e-4ded-9e7f-fb140d176d8c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"QuantityMtCO2e\": \"<number>\",\n  \"Description\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/CarbonEmission/:emissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "CarbonEmission",
+                        ":emissionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e568aaa3-6fa9-4fab-bee4-8abd5b25cdb7",
+                          "key": "emissionId",
+                          "value": "<string>",
+                          "description": "(Required) Salesforce ID of the carbon emission record"
+                        }
+                      ]
+                    },
+                    "description": "Updates an existing carbon emission record's data, such as correcting emission quantities or updating the reporting period."
+                  },
+                  "response": [
+                    {
+                      "id": "2d296ee6-ee3e-41a0-9cf2-addc6f2d737c",
+                      "name": "Record updated successfully",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"QuantityMtCO2e\": \"<number>\",\n  \"Description\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sobjects/CarbonEmission/:emissionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sobjects",
+                            "CarbonEmission",
+                            ":emissionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "emissionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:50:19.000Z",
+                      "updatedAt": "2026-07-28T02:50:19.000Z",
+                      "uid": "35240-2d296ee6-ee3e-41a0-9cf2-addc6f2d737c"
+                    },
+                    {
+                      "id": "6a3101a0-4c6c-47d1-9caf-93e42173eb50",
+                      "name": "Record not found",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"QuantityMtCO2e\": \"<number>\",\n  \"Description\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sobjects/CarbonEmission/:emissionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sobjects",
+                            "CarbonEmission",
+                            ":emissionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "emissionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:50:19.000Z",
+                      "updatedAt": "2026-07-28T02:50:19.000Z",
+                      "uid": "35240-6a3101a0-4c6c-47d1-9caf-93e42173eb50"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:50:19.000Z",
+                  "updatedAt": "2026-07-28T02:50:19.000Z",
+                  "uid": "35240-84e7aa3b-083e-4ded-9e7f-fb140d176d8c"
+                },
+                {
+                  "name": "Delete Carbon Emission Record",
+                  "id": "f85f3f3b-8fcd-48ba-a03a-477347227cbc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/CarbonEmission/:emissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "CarbonEmission",
+                        ":emissionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b880ed00-880a-4d6e-a3b8-7c66f28ea3b8",
+                          "key": "emissionId",
+                          "value": "<string>",
+                          "description": "(Required) Salesforce ID of the carbon emission record"
+                        }
+                      ]
+                    },
+                    "description": "Deletes a carbon emission record from the system."
+                  },
+                  "response": [
+                    {
+                      "id": "5bfa4c1d-1561-40bc-9e41-e5359f5bd24e",
+                      "name": "Record deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sobjects/CarbonEmission/:emissionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sobjects",
+                            "CarbonEmission",
+                            ":emissionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "emissionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:50:19.000Z",
+                      "updatedAt": "2026-07-28T02:50:19.000Z",
+                      "uid": "35240-5bfa4c1d-1561-40bc-9e41-e5359f5bd24e"
+                    },
+                    {
+                      "id": "943542b6-818b-4de4-a7a4-77bf22e6db39",
+                      "name": "Record not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sobjects/CarbonEmission/:emissionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sobjects",
+                            "CarbonEmission",
+                            ":emissionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "emissionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:50:19.000Z",
+                      "updatedAt": "2026-07-28T02:50:19.000Z",
+                      "uid": "35240-943542b6-818b-4de4-a7a4-77bf22e6db39"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:50:19.000Z",
+                  "updatedAt": "2026-07-28T02:50:19.000Z",
+                  "uid": "35240-f85f3f3b-8fcd-48ba-a03a-477347227cbc"
+                }
+              ],
+              "id": "d567cfe4-a5f8-4c20-a8e0-36e8e9e0d6a6",
+              "createdAt": "2026-07-28T02:50:19.000Z",
+              "updatedAt": "2026-07-28T02:50:19.000Z",
+              "uid": "35240-d567cfe4-a5f8-4c20-a8e0-36e8e9e0d6a6"
+            },
+            {
+              "name": "List Carbon Emission Records",
+              "id": "2ff44342-7f16-4528-ab81-50fbf0f5b1f6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sobjects/CarbonEmission?scope=3&reportingYear=<integer>&pageSize=25",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by emission scope (1, 2, or 3)",
+                      "key": "scope",
+                      "value": "3"
+                    },
+                    {
+                      "description": "Filter by reporting year (e.g., 2023)",
+                      "key": "reportingYear",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "25"
+                    }
+                  ]
+                },
+                "description": "Retrieves a list of carbon emission records tracked in Net Zero Cloud, including scope 1, 2, and 3 emissions across all reporting periods."
+              },
+              "response": [
+                {
+                  "id": "baacb367-fade-4205-ba2a-9057b463292c",
+                  "name": "Successfully retrieved carbon emission records",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/CarbonEmission?scope=3&reportingYear=<integer>&pageSize=25",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "CarbonEmission"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by emission scope (1, 2, or 3)",
+                          "key": "scope",
+                          "value": "3"
+                        },
+                        {
+                          "description": "Filter by reporting year (e.g., 2023)",
+                          "key": "reportingYear",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageSize",
+                          "value": "25"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"totalSize\": \"<integer>\",\n  \"done\": \"<boolean>\",\n  \"records\": [\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Scope\": 3,\n      \"EmissionSource\": \"<string>\",\n      \"QuantityMtCO2e\": \"<number>\",\n      \"ReportingYear\": \"<integer>\",\n      \"ReportingPeriodStartDate\": \"<date>\",\n      \"ReportingPeriodEndDate\": \"<date>\"\n    },\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Scope\": 3,\n      \"EmissionSource\": \"<string>\",\n      \"QuantityMtCO2e\": \"<number>\",\n      \"ReportingYear\": \"<integer>\",\n      \"ReportingPeriodStartDate\": \"<date>\",\n      \"ReportingPeriodEndDate\": \"<date>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:50:19.000Z",
+                  "updatedAt": "2026-07-28T02:50:19.000Z",
+                  "uid": "35240-baacb367-fade-4205-ba2a-9057b463292c"
+                },
+                {
+                  "id": "ac66fa06-82a6-455c-b0d6-81090ffa735c",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/CarbonEmission?scope=3&reportingYear=<integer>&pageSize=25",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "CarbonEmission"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by emission scope (1, 2, or 3)",
+                          "key": "scope",
+                          "value": "3"
+                        },
+                        {
+                          "description": "Filter by reporting year (e.g., 2023)",
+                          "key": "reportingYear",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageSize",
+                          "value": "25"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:50:19.000Z",
+                  "updatedAt": "2026-07-28T02:50:19.000Z",
+                  "uid": "35240-ac66fa06-82a6-455c-b0d6-81090ffa735c"
+                }
+              ],
+              "createdAt": "2026-07-28T02:50:19.000Z",
+              "updatedAt": "2026-07-28T02:50:19.000Z",
+              "uid": "35240-2ff44342-7f16-4528-ab81-50fbf0f5b1f6"
+            },
+            {
+              "name": "Create Carbon Emission Record",
+              "id": "5cbcd73d-64d0-412f-9591-ca6ee45792bf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Scope\": 1,\n  \"QuantityMtCO2e\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"EmissionSource\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sobjects/CarbonEmission",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sobjects",
+                    "CarbonEmission"
+                  ]
+                },
+                "description": "Creates a new carbon emission record for tracking greenhouse gas emissions from a specific source or activity."
+              },
+              "response": [
+                {
+                  "id": "e65a1609-748e-40df-8555-18581776c354",
+                  "name": "Carbon emission record created successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Scope\": 1,\n  \"QuantityMtCO2e\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"EmissionSource\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\",\n  \"Description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/CarbonEmission",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "CarbonEmission"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:50:19.000Z",
+                  "updatedAt": "2026-07-28T02:50:19.000Z",
+                  "uid": "35240-e65a1609-748e-40df-8555-18581776c354"
+                },
+                {
+                  "id": "bdf77283-6a99-40e4-ab6a-ec3fb19ba358",
+                  "name": "Invalid request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Scope\": 1,\n  \"QuantityMtCO2e\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"EmissionSource\": \"<string>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\",\n  \"Description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/CarbonEmission",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "CarbonEmission"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:50:19.000Z",
+                  "updatedAt": "2026-07-28T02:50:19.000Z",
+                  "uid": "35240-bdf77283-6a99-40e4-ab6a-ec3fb19ba358"
+                }
+              ],
+              "createdAt": "2026-07-28T02:50:19.000Z",
+              "updatedAt": "2026-07-28T02:50:19.000Z",
+              "uid": "35240-5cbcd73d-64d0-412f-9591-ca6ee45792bf"
+            }
+          ],
+          "id": "e4c6215b-5b3a-483d-921a-1f822a5eca73",
+          "createdAt": "2026-07-28T02:50:19.000Z",
+          "updatedAt": "2026-07-28T02:50:19.000Z",
+          "uid": "35240-e4c6215b-5b3a-483d-921a-1f822a5eca73"
+        }
+      ],
+      "id": "34e16843-d198-4f85-84b0-d9d2c5e420ce",
+      "createdAt": "2026-07-28T02:50:19.000Z",
+      "updatedAt": "2026-07-28T02:50:19.000Z",
+      "uid": "35240-34e16843-d198-4f85-84b0-d9d2c5e420ce"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "yourInstance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.my.salesforce.com/services/data/v59.0"
+    }
+  ]
+}

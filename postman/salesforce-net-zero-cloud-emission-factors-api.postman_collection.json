@@ -1,0 +1,166 @@
+{
+  "info": {
+    "_postman_id": "995c9102-9baf-4550-97e6-b45aa287c89f",
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions Emission Factors API",
+    "description": "REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.\n\nContact Support:\n Name: Salesforce Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:24.000Z",
+    "updatedAt": "2026-07-28T02:50:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-995c9102-9baf-4550-97e6-b45aa287c89f"
+  },
+  "item": [
+    {
+      "name": "sobjects",
+      "item": [
+        {
+          "name": "EmissionFactor",
+          "item": [
+            {
+              "name": "List Emission Factors",
+              "id": "e42cfd70-57c1-4cd2-99d6-7f4b1da50718",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sobjects/EmissionFactor?category=<string>&region=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sobjects",
+                    "EmissionFactor"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by emission factor category",
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by geographic region",
+                      "key": "region",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieves emission factors used to calculate CO2 equivalent emissions from activity data. Includes region-specific grid emission factors, fuel emission factors, and custom factors."
+              },
+              "response": [
+                {
+                  "id": "89d05d46-4ef9-4899-8010-fdcd402c6a61",
+                  "name": "Successfully retrieved emission factors",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/EmissionFactor?category=<string>&region=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "EmissionFactor"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by emission factor category",
+                          "key": "category",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by geographic region",
+                          "key": "region",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"totalSize\": \"<integer>\",\n  \"done\": \"<boolean>\",\n  \"records\": [\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Category\": \"<string>\",\n      \"Scope\": \"<integer>\",\n      \"FactorValue\": \"<number>\",\n      \"Unit\": \"<string>\",\n      \"Region\": \"<string>\",\n      \"EffectiveStartDate\": \"<date>\",\n      \"EffectiveEndDate\": \"<date>\",\n      \"Source\": \"<string>\"\n    },\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Category\": \"<string>\",\n      \"Scope\": \"<integer>\",\n      \"FactorValue\": \"<number>\",\n      \"Unit\": \"<string>\",\n      \"Region\": \"<string>\",\n      \"EffectiveStartDate\": \"<date>\",\n      \"EffectiveEndDate\": \"<date>\",\n      \"Source\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:50:24.000Z",
+                  "updatedAt": "2026-07-28T02:50:24.000Z",
+                  "uid": "35240-89d05d46-4ef9-4899-8010-fdcd402c6a61"
+                }
+              ],
+              "createdAt": "2026-07-28T02:50:24.000Z",
+              "updatedAt": "2026-07-28T02:50:24.000Z",
+              "uid": "35240-e42cfd70-57c1-4cd2-99d6-7f4b1da50718"
+            }
+          ],
+          "id": "d7199416-61de-4d57-868b-8b5e5e4f2e29",
+          "createdAt": "2026-07-28T02:50:24.000Z",
+          "updatedAt": "2026-07-28T02:50:24.000Z",
+          "uid": "35240-d7199416-61de-4d57-868b-8b5e5e4f2e29"
+        }
+      ],
+      "id": "ca9d6008-6fd0-4aa1-8a7f-04f6d8015afe",
+      "createdAt": "2026-07-28T02:50:24.000Z",
+      "updatedAt": "2026-07-28T02:50:24.000Z",
+      "uid": "35240-ca9d6008-6fd0-4aa1-8a7f-04f6d8015afe"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "yourInstance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.my.salesforce.com/services/data/v59.0"
+    }
+  ]
+}

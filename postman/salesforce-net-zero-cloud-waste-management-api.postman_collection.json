@@ -1,0 +1,245 @@
+{
+  "info": {
+    "_postman_id": "d9246663-a077-42da-a19b-36de4c2a7732",
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions Waste Management API",
+    "description": "REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.\n\nContact Support:\n Name: Salesforce Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:28.000Z",
+    "updatedAt": "2026-07-28T02:50:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d9246663-a077-42da-a19b-36de4c2a7732"
+  },
+  "item": [
+    {
+      "name": "sobjects",
+      "item": [
+        {
+          "name": "WasteDisposal",
+          "item": [
+            {
+              "name": "List Waste Disposal Records",
+              "id": "79b35486-fe5e-40ea-aa9c-051fd8edac93",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sobjects/WasteDisposal",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sobjects",
+                    "WasteDisposal"
+                  ]
+                },
+                "description": "Retrieves waste disposal records including landfill, recycling, composting, and hazardous waste disposal data."
+              },
+              "response": [
+                {
+                  "id": "55005b54-a5c8-4367-a17a-0a106107d966",
+                  "name": "Successfully retrieved waste disposal records",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/WasteDisposal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "WasteDisposal"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"totalSize\": \"<integer>\",\n  \"done\": \"<boolean>\",\n  \"records\": [\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"WasteType\": \"<string>\",\n      \"DisposalMethod\": \"HazardousDisposal\",\n      \"QuantityKg\": \"<number>\",\n      \"ReportingYear\": \"<integer>\"\n    },\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"WasteType\": \"<string>\",\n      \"DisposalMethod\": \"HazardousDisposal\",\n      \"QuantityKg\": \"<number>\",\n      \"ReportingYear\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:50:28.000Z",
+                  "updatedAt": "2026-07-28T02:50:28.000Z",
+                  "uid": "35240-55005b54-a5c8-4367-a17a-0a106107d966"
+                }
+              ],
+              "createdAt": "2026-07-28T02:50:28.000Z",
+              "updatedAt": "2026-07-28T02:50:28.000Z",
+              "uid": "35240-79b35486-fe5e-40ea-aa9c-051fd8edac93"
+            },
+            {
+              "name": "Create Waste Disposal Record",
+              "id": "f6f1610e-a632-4ff3-adb8-e06c144fc328",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"WasteType\": \"<string>\",\n  \"DisposalMethod\": \"<string>\",\n  \"QuantityKg\": \"<number>\",\n  \"ReportingYear\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sobjects/WasteDisposal",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sobjects",
+                    "WasteDisposal"
+                  ]
+                },
+                "description": "Creates a new waste disposal record."
+              },
+              "response": [
+                {
+                  "id": "9e784fe2-653b-4f3d-a432-c92dd8cc7201",
+                  "name": "Waste disposal record created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"WasteType\": \"<string>\",\n  \"DisposalMethod\": \"<string>\",\n  \"QuantityKg\": \"<number>\",\n  \"ReportingYear\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/WasteDisposal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "WasteDisposal"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:50:28.000Z",
+                  "updatedAt": "2026-07-28T02:50:28.000Z",
+                  "uid": "35240-9e784fe2-653b-4f3d-a432-c92dd8cc7201"
+                }
+              ],
+              "createdAt": "2026-07-28T02:50:28.000Z",
+              "updatedAt": "2026-07-28T02:50:28.000Z",
+              "uid": "35240-f6f1610e-a632-4ff3-adb8-e06c144fc328"
+            }
+          ],
+          "id": "a9a7b0cd-b80c-4a89-a20b-e23845be9f10",
+          "createdAt": "2026-07-28T02:50:28.000Z",
+          "updatedAt": "2026-07-28T02:50:28.000Z",
+          "uid": "35240-a9a7b0cd-b80c-4a89-a20b-e23845be9f10"
+        }
+      ],
+      "id": "1cd4c2ca-59ab-4600-ba59-6263180ff96c",
+      "createdAt": "2026-07-28T02:50:28.000Z",
+      "updatedAt": "2026-07-28T02:50:28.000Z",
+      "uid": "35240-1cd4c2ca-59ab-4600-ba59-6263180ff96c"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "yourInstance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.my.salesforce.com/services/data/v59.0"
+    }
+  ]
+}

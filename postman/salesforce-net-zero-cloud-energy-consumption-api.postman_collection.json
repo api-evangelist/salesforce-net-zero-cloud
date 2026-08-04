@@ -1,0 +1,406 @@
+{
+  "info": {
+    "_postman_id": "a1a5502d-5c43-4758-958c-0b6180da3197",
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions Energy Consumption API",
+    "description": "REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.\n\nContact Support:\n Name: Salesforce Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:25.000Z",
+    "updatedAt": "2026-07-28T02:50:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a1a5502d-5c43-4758-958c-0b6180da3197"
+  },
+  "item": [
+    {
+      "name": "sobjects",
+      "item": [
+        {
+          "name": "EnergyConsumption",
+          "item": [
+            {
+              "name": "{consumptionId}",
+              "item": [
+                {
+                  "name": "Get Energy Consumption Record",
+                  "id": "b1c30d7c-6591-4610-b683-50e30593d6e8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/EnergyConsumption/:consumptionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "EnergyConsumption",
+                        ":consumptionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "92fcf936-a9ef-49eb-bcb8-6744d491c0fc",
+                          "key": "consumptionId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Retrieves details for a specific energy consumption record."
+                  },
+                  "response": [
+                    {
+                      "id": "91f228b5-8238-4379-ab5b-ecb5d1b73fc3",
+                      "name": "Successfully retrieved energy consumption record",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sobjects/EnergyConsumption/:consumptionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sobjects",
+                            "EnergyConsumption",
+                            ":consumptionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "consumptionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"EnergyType\": \"NaturalGas\",\n  \"QuantityKWh\": \"<number>\",\n  \"FacilityId\": \"<string>\",\n  \"ReportingYear\": \"<integer>\",\n  \"ReportingPeriodStartDate\": \"<date>\",\n  \"ReportingPeriodEndDate\": \"<date>\"\n}",
+                      "createdAt": "2026-07-28T02:50:25.000Z",
+                      "updatedAt": "2026-07-28T02:50:25.000Z",
+                      "uid": "35240-91f228b5-8238-4379-ab5b-ecb5d1b73fc3"
+                    },
+                    {
+                      "id": "f3a58bb8-0b6d-4aec-83eb-bce22125426a",
+                      "name": "Record not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sobjects/EnergyConsumption/:consumptionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sobjects",
+                            "EnergyConsumption",
+                            ":consumptionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "consumptionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:50:25.000Z",
+                      "updatedAt": "2026-07-28T02:50:25.000Z",
+                      "uid": "35240-f3a58bb8-0b6d-4aec-83eb-bce22125426a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:50:25.000Z",
+                  "updatedAt": "2026-07-28T02:50:25.000Z",
+                  "uid": "35240-b1c30d7c-6591-4610-b683-50e30593d6e8"
+                }
+              ],
+              "id": "48828639-ca66-425e-8e57-d055f91a121a",
+              "createdAt": "2026-07-28T02:50:25.000Z",
+              "updatedAt": "2026-07-28T02:50:25.000Z",
+              "uid": "35240-48828639-ca66-425e-8e57-d055f91a121a"
+            },
+            {
+              "name": "List Energy Consumption Records",
+              "id": "ce19ca6e-9656-4f52-8d98-dbafeba9caad",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sobjects/EnergyConsumption?energyType=NaturalGas&reportingYear=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sobjects",
+                    "EnergyConsumption"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by energy type",
+                      "key": "energyType",
+                      "value": "NaturalGas"
+                    },
+                    {
+                      "key": "reportingYear",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Retrieves energy consumption records including electricity, natural gas, fuel, and renewable energy usage across facilities and time periods."
+              },
+              "response": [
+                {
+                  "id": "6cd5f5bb-4442-4d10-8bb4-9b736042bbe6",
+                  "name": "Successfully retrieved energy consumption records",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/EnergyConsumption?energyType=NaturalGas&reportingYear=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "EnergyConsumption"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by energy type",
+                          "key": "energyType",
+                          "value": "NaturalGas"
+                        },
+                        {
+                          "key": "reportingYear",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"totalSize\": \"<integer>\",\n  \"done\": \"<boolean>\",\n  \"records\": [\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"EnergyType\": \"Electricity\",\n      \"QuantityKWh\": \"<number>\",\n      \"FacilityId\": \"<string>\",\n      \"ReportingYear\": \"<integer>\",\n      \"ReportingPeriodStartDate\": \"<date>\",\n      \"ReportingPeriodEndDate\": \"<date>\"\n    },\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"EnergyType\": \"NaturalGas\",\n      \"QuantityKWh\": \"<number>\",\n      \"FacilityId\": \"<string>\",\n      \"ReportingYear\": \"<integer>\",\n      \"ReportingPeriodStartDate\": \"<date>\",\n      \"ReportingPeriodEndDate\": \"<date>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:50:25.000Z",
+                  "updatedAt": "2026-07-28T02:50:25.000Z",
+                  "uid": "35240-6cd5f5bb-4442-4d10-8bb4-9b736042bbe6"
+                }
+              ],
+              "createdAt": "2026-07-28T02:50:25.000Z",
+              "updatedAt": "2026-07-28T02:50:25.000Z",
+              "uid": "35240-ce19ca6e-9656-4f52-8d98-dbafeba9caad"
+            },
+            {
+              "name": "Create Energy Consumption Record",
+              "id": "b8df934c-5d8a-415e-8e72-b1ef3f903cc2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"EnergyType\": \"<string>\",\n  \"QuantityKWh\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"FacilityId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sobjects/EnergyConsumption",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sobjects",
+                    "EnergyConsumption"
+                  ]
+                },
+                "description": "Creates a new energy consumption record for tracking energy usage at a facility or from a specific source."
+              },
+              "response": [
+                {
+                  "id": "c210c854-523d-41c1-bb97-cf072844ec09",
+                  "name": "Energy consumption record created successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"EnergyType\": \"<string>\",\n  \"QuantityKWh\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"FacilityId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/EnergyConsumption",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "EnergyConsumption"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:50:25.000Z",
+                  "updatedAt": "2026-07-28T02:50:25.000Z",
+                  "uid": "35240-c210c854-523d-41c1-bb97-cf072844ec09"
+                }
+              ],
+              "createdAt": "2026-07-28T02:50:25.000Z",
+              "updatedAt": "2026-07-28T02:50:25.000Z",
+              "uid": "35240-b8df934c-5d8a-415e-8e72-b1ef3f903cc2"
+            }
+          ],
+          "id": "e68e57c2-ac01-4a60-9dda-ef369aec2956",
+          "createdAt": "2026-07-28T02:50:25.000Z",
+          "updatedAt": "2026-07-28T02:50:25.000Z",
+          "uid": "35240-e68e57c2-ac01-4a60-9dda-ef369aec2956"
+        }
+      ],
+      "id": "9813ff86-c422-44fb-af8c-ecb486476803",
+      "createdAt": "2026-07-28T02:50:25.000Z",
+      "updatedAt": "2026-07-28T02:50:25.000Z",
+      "uid": "35240-9813ff86-c422-44fb-af8c-ecb486476803"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "yourInstance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.my.salesforce.com/services/data/v59.0"
+    }
+  ]
+}

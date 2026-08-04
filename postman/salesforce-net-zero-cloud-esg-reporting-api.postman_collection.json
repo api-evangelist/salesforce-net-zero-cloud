@@ -1,0 +1,185 @@
+{
+  "info": {
+    "_postman_id": "26dfa62a-84de-42ad-93db-21c80f6ab96c",
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions ESG Reporting API",
+    "description": "REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.\n\nContact Support:\n Name: Salesforce Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:26.000Z",
+    "updatedAt": "2026-07-28T02:50:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-26dfa62a-84de-42ad-93db-21c80f6ab96c"
+  },
+  "item": [
+    {
+      "name": "query",
+      "item": [
+        {
+          "name": "Query Sustainability Data",
+          "id": "e3319567-ac41-4a2c-b393-e8901d79c848",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/query?q=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "query"
+              ],
+              "query": [
+                {
+                  "description": "(Required) SOQL query string",
+                  "key": "q",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Executes a SOQL query to retrieve sustainability data across any Net Zero Cloud object with custom filtering and aggregation."
+          },
+          "response": [
+            {
+              "id": "5125d0c9-b664-4753-94b5-94ad62e4d2d4",
+              "name": "Query results returned",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/query?q=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "query"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) SOQL query string",
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"totalSize\": \"<integer>\",\n  \"done\": \"<boolean>\",\n  \"nextRecordsUrl\": \"<string>\",\n  \"records\": [\n    {\n      \"elit_3b9\": true,\n      \"velit0d\": 97073428,\n      \"culpaa\": false\n    },\n    {\n      \"non_4\": 52355549,\n      \"id_926\": -59989488.183368914\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:50:26.000Z",
+              "updatedAt": "2026-07-28T02:50:26.000Z",
+              "uid": "35240-5125d0c9-b664-4753-94b5-94ad62e4d2d4"
+            },
+            {
+              "id": "a3adeed1-db94-4be5-a44c-995efc892fef",
+              "name": "Invalid SOQL query",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/query?q=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "query"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) SOQL query string",
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:50:26.000Z",
+              "updatedAt": "2026-07-28T02:50:26.000Z",
+              "uid": "35240-a3adeed1-db94-4be5-a44c-995efc892fef"
+            }
+          ],
+          "createdAt": "2026-07-28T02:50:26.000Z",
+          "updatedAt": "2026-07-28T02:50:26.000Z",
+          "uid": "35240-e3319567-ac41-4a2c-b393-e8901d79c848"
+        }
+      ],
+      "id": "ac4bb380-dff3-481f-99c0-5195136aae66",
+      "createdAt": "2026-07-28T02:50:26.000Z",
+      "updatedAt": "2026-07-28T02:50:26.000Z",
+      "uid": "35240-ac4bb380-dff3-481f-99c0-5195136aae66"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "yourInstance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.my.salesforce.com/services/data/v59.0"
+    }
+  ]
+}

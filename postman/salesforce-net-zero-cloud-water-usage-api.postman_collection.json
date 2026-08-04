@@ -1,0 +1,245 @@
+{
+  "info": {
+    "_postman_id": "ac08461c-a59d-440f-84cb-490ed8fcd97b",
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions Water Usage API",
+    "description": "REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.\n\nContact Support:\n Name: Salesforce Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:28.000Z",
+    "updatedAt": "2026-07-28T02:50:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ac08461c-a59d-440f-84cb-490ed8fcd97b"
+  },
+  "item": [
+    {
+      "name": "sobjects",
+      "item": [
+        {
+          "name": "WaterWithdrawal",
+          "item": [
+            {
+              "name": "List Water Withdrawal Records",
+              "id": "8f69f144-c5c8-4de3-aaa7-f865961b2134",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sobjects/WaterWithdrawal",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sobjects",
+                    "WaterWithdrawal"
+                  ]
+                },
+                "description": "Retrieves water withdrawal and consumption records from various sources such as municipal supply, groundwater, and rainwater."
+              },
+              "response": [
+                {
+                  "id": "3799cfa2-3624-49e9-ac42-034bdb0092cb",
+                  "name": "Successfully retrieved water withdrawal records",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/WaterWithdrawal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "WaterWithdrawal"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"totalSize\": \"<integer>\",\n  \"done\": \"<boolean>\",\n  \"records\": [\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"WaterSource\": \"SurfaceWater\",\n      \"QuantityCubicMeters\": \"<number>\",\n      \"FacilityId\": \"<string>\",\n      \"ReportingYear\": \"<integer>\"\n    },\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"WaterSource\": \"SurfaceWater\",\n      \"QuantityCubicMeters\": \"<number>\",\n      \"FacilityId\": \"<string>\",\n      \"ReportingYear\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:50:29.000Z",
+                  "updatedAt": "2026-07-28T02:50:29.000Z",
+                  "uid": "35240-3799cfa2-3624-49e9-ac42-034bdb0092cb"
+                }
+              ],
+              "createdAt": "2026-07-28T02:50:29.000Z",
+              "updatedAt": "2026-07-28T02:50:29.000Z",
+              "uid": "35240-8f69f144-c5c8-4de3-aaa7-f865961b2134"
+            },
+            {
+              "name": "Create Water Withdrawal Record",
+              "id": "2250336d-d2f0-43c5-b3c0-60dcdfc0e87b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"WaterSource\": \"<string>\",\n  \"QuantityCubicMeters\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"FacilityId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sobjects/WaterWithdrawal",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sobjects",
+                    "WaterWithdrawal"
+                  ]
+                },
+                "description": "Creates a new water withdrawal record."
+              },
+              "response": [
+                {
+                  "id": "6ac82124-c20a-40ae-99c6-c0b1944ed5cf",
+                  "name": "Water withdrawal record created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"WaterSource\": \"<string>\",\n  \"QuantityCubicMeters\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"FacilityId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/WaterWithdrawal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "WaterWithdrawal"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:50:29.000Z",
+                  "updatedAt": "2026-07-28T02:50:29.000Z",
+                  "uid": "35240-6ac82124-c20a-40ae-99c6-c0b1944ed5cf"
+                }
+              ],
+              "createdAt": "2026-07-28T02:50:29.000Z",
+              "updatedAt": "2026-07-28T02:50:29.000Z",
+              "uid": "35240-2250336d-d2f0-43c5-b3c0-60dcdfc0e87b"
+            }
+          ],
+          "id": "4600548f-e33a-4181-ad58-e2da9041c5db",
+          "createdAt": "2026-07-28T02:50:29.000Z",
+          "updatedAt": "2026-07-28T02:50:29.000Z",
+          "uid": "35240-4600548f-e33a-4181-ad58-e2da9041c5db"
+        }
+      ],
+      "id": "4ea8a8dd-565d-4738-be46-47d219c2579d",
+      "createdAt": "2026-07-28T02:50:29.000Z",
+      "updatedAt": "2026-07-28T02:50:29.000Z",
+      "uid": "35240-4ea8a8dd-565d-4738-be46-47d219c2579d"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "yourInstance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.my.salesforce.com/services/data/v59.0"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "provider": "salesforce-net-zero-cloud",
+  "sources": [
+    "salesforce-net-zero-cloud-carbon-emissions-api-openapi.yml",
+    "salesforce-net-zero-cloud-emission-factors-api-openapi.yml",
+    "salesforce-net-zero-cloud-energy-consumption-api-openapi.yml",
+    "salesforce-net-zero-cloud-esg-reporting-api-openapi.yml",
+    "salesforce-net-zero-cloud-sustainability-goals-api-openapi.yml",
+    "salesforce-net-zero-cloud-waste-management-api-openapi.yml",
+    "salesforce-net-zero-cloud-water-usage-api-openapi.yml"
+  ],
+  "outputs": [
+    "salesforce-net-zero-cloud-carbon-emissions-api-openapi.yml",
+    "salesforce-net-zero-cloud-emission-factors-api-openapi.yml",
+    "salesforce-net-zero-cloud-energy-consumption-api-openapi.yml",
+    "salesforce-net-zero-cloud-esg-reporting-api-openapi.yml",
+    "salesforce-net-zero-cloud-sustainability-goals-api-openapi.yml",
+    "salesforce-net-zero-cloud-waste-management-api-openapi.yml",
+    "salesforce-net-zero-cloud-water-usage-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

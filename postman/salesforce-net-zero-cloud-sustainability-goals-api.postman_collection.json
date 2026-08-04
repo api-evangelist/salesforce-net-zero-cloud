@@ -1,0 +1,245 @@
+{
+  "info": {
+    "_postman_id": "f41a95a1-9395-4b2e-b6b3-04193040b5cf",
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions Sustainability Goals API",
+    "description": "REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.\n\nContact Support:\n Name: Salesforce Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:50:27.000Z",
+    "updatedAt": "2026-07-28T02:50:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f41a95a1-9395-4b2e-b6b3-04193040b5cf"
+  },
+  "item": [
+    {
+      "name": "sobjects",
+      "item": [
+        {
+          "name": "SustainabilityGoal",
+          "item": [
+            {
+              "name": "List Sustainability Goals",
+              "id": "1e46a58e-ba53-4e63-8466-1ee8bb5b6a4d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sobjects/SustainabilityGoal",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sobjects",
+                    "SustainabilityGoal"
+                  ]
+                },
+                "description": "Retrieves sustainability goals and net zero targets, including current progress, baseline years, and target years."
+              },
+              "response": [
+                {
+                  "id": "dc7d1ccf-cf58-4b22-9171-005b497a8a42",
+                  "name": "Successfully retrieved sustainability goals",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/SustainabilityGoal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "SustainabilityGoal"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"totalSize\": \"<integer>\",\n  \"done\": \"<boolean>\",\n  \"records\": [\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"GoalType\": \"NetZero\",\n      \"BaselineYear\": \"<integer>\",\n      \"TargetYear\": \"<integer>\",\n      \"ReductionTargetPercentage\": \"<number>\",\n      \"CurrentProgressPercentage\": \"<number>\",\n      \"Status\": \"Achieved\"\n    },\n    {\n      \"Id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"GoalType\": \"RenewableEnergy\",\n      \"BaselineYear\": \"<integer>\",\n      \"TargetYear\": \"<integer>\",\n      \"ReductionTargetPercentage\": \"<number>\",\n      \"CurrentProgressPercentage\": \"<number>\",\n      \"Status\": \"Missed\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:50:27.000Z",
+                  "updatedAt": "2026-07-28T02:50:27.000Z",
+                  "uid": "35240-dc7d1ccf-cf58-4b22-9171-005b497a8a42"
+                }
+              ],
+              "createdAt": "2026-07-28T02:50:27.000Z",
+              "updatedAt": "2026-07-28T02:50:27.000Z",
+              "uid": "35240-1e46a58e-ba53-4e63-8466-1ee8bb5b6a4d"
+            },
+            {
+              "name": "Create Sustainability Goal",
+              "id": "6f00598d-5f02-4b46-b41c-4cc41fd1e73e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"GoalType\": \"<string>\",\n  \"BaselineYear\": \"<integer>\",\n  \"TargetYear\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ReductionTargetPercentage\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sobjects/SustainabilityGoal",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sobjects",
+                    "SustainabilityGoal"
+                  ]
+                },
+                "description": "Creates a new sustainability goal or net zero commitment with target metrics and timeline."
+              },
+              "response": [
+                {
+                  "id": "6ec79651-6d3e-448c-b13d-20bd4c17d354",
+                  "name": "Sustainability goal created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"GoalType\": \"<string>\",\n  \"BaselineYear\": \"<integer>\",\n  \"TargetYear\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ReductionTargetPercentage\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sobjects/SustainabilityGoal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sobjects",
+                        "SustainabilityGoal"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:50:27.000Z",
+                  "updatedAt": "2026-07-28T02:50:27.000Z",
+                  "uid": "35240-6ec79651-6d3e-448c-b13d-20bd4c17d354"
+                }
+              ],
+              "createdAt": "2026-07-28T02:50:27.000Z",
+              "updatedAt": "2026-07-28T02:50:27.000Z",
+              "uid": "35240-6f00598d-5f02-4b46-b41c-4cc41fd1e73e"
+            }
+          ],
+          "id": "17beada5-bb23-4ae2-bde8-63646b013734",
+          "createdAt": "2026-07-28T02:50:27.000Z",
+          "updatedAt": "2026-07-28T02:50:27.000Z",
+          "uid": "35240-17beada5-bb23-4ae2-bde8-63646b013734"
+        }
+      ],
+      "id": "25f94227-8567-4fb4-93ee-74aa94ed1e07",
+      "createdAt": "2026-07-28T02:50:27.000Z",
+      "updatedAt": "2026-07-28T02:50:27.000Z",
+      "uid": "35240-25f94227-8567-4fb4-93ee-74aa94ed1e07"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "yourInstance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.my.salesforce.com/services/data/v59.0"
+    }
+  ]
+}
