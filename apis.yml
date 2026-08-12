@@ -219,8 +219,6 @@ common:
     url: https://github.com/salesforce
   - type: SpectralRules
     url: rules/salesforce-net-zero-cloud-rules.yml
-  - type: Capabilities
-    url: capabilities/carbon-accounting.yaml
   - type: JSONSchema
     url: json-schema/salesforce-net-zero-cloud-carbon-emission-schema.json
     title: Carbon Emission Schema
