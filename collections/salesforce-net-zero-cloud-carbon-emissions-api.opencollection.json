@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions API",
+    "version": "59.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.salesforce.com/services/oauth2/authorize",
+      "accessTokenUrl": "https://login.salesforce.com/services/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Carbon Emissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Carbon Emission Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/CarbonEmission",
+            "params": [
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Filter by emission scope (1, 2, or 3)"
+              },
+              {
+                "name": "reportingYear",
+                "value": "",
+                "type": "query",
+                "description": "Filter by reporting year (e.g., 2023)"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of carbon emission records tracked in Net Zero Cloud, including scope 1, 2, and 3 emissions across all reporting periods."
+        },
+        {
+          "info": {
+            "name": "Create Carbon Emission Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/CarbonEmission",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new carbon emission record for tracking greenhouse gas emissions from a specific source or activity."
+        },
+        {
+          "info": {
+            "name": "Get Carbon Emission Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/CarbonEmission/:emissionId",
+            "params": [
+              {
+                "name": "emissionId",
+                "value": "",
+                "type": "path",
+                "description": "Salesforce ID of the carbon emission record"
+              }
+            ]
+          },
+          "docs": "Retrieves details for a specific carbon emission record including scope, source, quantity, and reporting period."
+        },
+        {
+          "info": {
+            "name": "Update Carbon Emission Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/CarbonEmission/:emissionId",
+            "params": [
+              {
+                "name": "emissionId",
+                "value": "",
+                "type": "path",
+                "description": "Salesforce ID of the carbon emission record"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing carbon emission record's data, such as correcting emission quantities or updating the reporting period."
+        },
+        {
+          "info": {
+            "name": "Delete Carbon Emission Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/CarbonEmission/:emissionId",
+            "params": [
+              {
+                "name": "emissionId",
+                "value": "",
+                "type": "path",
+                "description": "Salesforce ID of the carbon emission record"
+              }
+            ]
+          },
+          "docs": "Deletes a carbon emission record from the system."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

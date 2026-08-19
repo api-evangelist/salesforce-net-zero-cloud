@@ -1,0 +1,457 @@
+{
+  "item": [
+    {
+      "id": "0adeeeab-6b8d-44fb-93bf-5df1fb136356",
+      "name": "Energy Consumption",
+      "description": {
+        "content": "Energy usage tracking and management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d098e787-1bd6-467e-8217-63cb37b319ed",
+          "name": "List Energy Consumption Records",
+          "request": {
+            "name": "List Energy Consumption Records",
+            "description": {
+              "content": "Retrieves energy consumption records including electricity, natural gas, fuel, and renewable energy usage across facilities and time periods.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "EnergyConsumption"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "energyType",
+                  "value": "<string>",
+                  "description": "Filter by energy type"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportingYear",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6ecf50e0-eaa7-437a-9963-97a0e90a934e",
+              "name": "Successfully retrieved energy consumption records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "EnergyConsumption"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "energyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportingYear",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 3281,\n  \"done\": true,\n  \"records\": [\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"EnergyType\": \"NaturalGas\",\n      \"QuantityKWh\": 1461.8923617250746,\n      \"FacilityId\": \"string\",\n      \"ReportingYear\": 5698,\n      \"ReportingPeriodStartDate\": \"1958-12-05\",\n      \"ReportingPeriodEndDate\": \"1982-06-06\"\n    },\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"EnergyType\": \"NaturalGas\",\n      \"QuantityKWh\": 5933.898877566164,\n      \"FacilityId\": \"string\",\n      \"ReportingYear\": 8286,\n      \"ReportingPeriodStartDate\": \"2026-04-16\",\n      \"ReportingPeriodEndDate\": \"1964-06-09\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "797d8af0-19fa-47f2-a2e2-e241443d4b32",
+          "name": "Create Energy Consumption Record",
+          "request": {
+            "name": "Create Energy Consumption Record",
+            "description": {
+              "content": "Creates a new energy consumption record for tracking energy usage at a facility or from a specific source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "EnergyConsumption"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"EnergyType\": \"<string>\",\n  \"QuantityKWh\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"FacilityId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be7f6a20-7f2b-4d05-a900-8e03c51bdc74",
+              "name": "Energy consumption record created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "EnergyConsumption"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"EnergyType\": \"<string>\",\n  \"QuantityKWh\": \"<number>\",\n  \"ReportingYear\": \"<integer>\",\n  \"FacilityId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"success\": true,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "faf6f3ee-2fc4-40fb-8dba-fcbb6e26f84f",
+          "name": "Get Energy Consumption Record",
+          "request": {
+            "name": "Get Energy Consumption Record",
+            "description": {
+              "content": "Retrieves details for a specific energy consumption record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "EnergyConsumption",
+                ":consumptionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "consumptionId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5db44fe1-27b5-452d-b306-5cc5e377123d",
+              "name": "Successfully retrieved energy consumption record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "EnergyConsumption",
+                    ":consumptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consumptionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"string\",\n  \"Name\": \"string\",\n  \"EnergyType\": \"Fuel\",\n  \"QuantityKWh\": 7964.987817680303,\n  \"FacilityId\": \"string\",\n  \"ReportingYear\": 2339,\n  \"ReportingPeriodStartDate\": \"2007-12-27\",\n  \"ReportingPeriodEndDate\": \"1992-11-24\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e3d561d-2837-4dfa-80f1-ee1adad33eb7",
+              "name": "Record not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "EnergyConsumption",
+                    ":consumptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consumptionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Salesforce instance identifier",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "yourInstance",
+      "key": "instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{instance}}.my.salesforce.com/services/data/v59.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9b63f27e-ec87-4258-a9cf-7697b09f9d9f",
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions Energy Consumption API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.\n\nContact Support:\n Name: Salesforce Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

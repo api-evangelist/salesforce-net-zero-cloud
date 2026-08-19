@@ -1,0 +1,271 @@
+{
+  "item": [
+    {
+      "id": "34b88451-a278-4ee5-8c73-99d679b22b8b",
+      "name": "Sustainability Goals",
+      "description": {
+        "content": "Net zero and sustainability target management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "325230aa-c2e0-446a-8a5a-ba6cadce58ca",
+          "name": "List Sustainability Goals",
+          "request": {
+            "name": "List Sustainability Goals",
+            "description": {
+              "content": "Retrieves sustainability goals and net zero targets, including current progress, baseline years, and target years.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "SustainabilityGoal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "586bc79e-df62-44a7-9d12-71d12d5510be",
+              "name": "Successfully retrieved sustainability goals",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "SustainabilityGoal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 6607,\n  \"done\": false,\n  \"records\": [\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"GoalType\": \"RenewableEnergy\",\n      \"BaselineYear\": 1657,\n      \"TargetYear\": 4401,\n      \"ReductionTargetPercentage\": 114.70952808608214,\n      \"CurrentProgressPercentage\": 7140.2317297545005,\n      \"Status\": \"InProgress\"\n    },\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"GoalType\": \"ScienceBasedTarget\",\n      \"BaselineYear\": 6121,\n      \"TargetYear\": 8052,\n      \"ReductionTargetPercentage\": 5495.201620671879,\n      \"CurrentProgressPercentage\": 4012.3480908618194,\n      \"Status\": \"Active\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98502a23-302d-409f-b349-5a317f5533c6",
+          "name": "Create Sustainability Goal",
+          "request": {
+            "name": "Create Sustainability Goal",
+            "description": {
+              "content": "Creates a new sustainability goal or net zero commitment with target metrics and timeline.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "SustainabilityGoal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"GoalType\": \"<string>\",\n  \"BaselineYear\": \"<integer>\",\n  \"TargetYear\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ReductionTargetPercentage\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "140de14d-5963-4582-88f0-26926c68e583",
+              "name": "Sustainability goal created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "SustainabilityGoal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"GoalType\": \"<string>\",\n  \"BaselineYear\": \"<integer>\",\n  \"TargetYear\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ReductionTargetPercentage\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Salesforce instance identifier",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "yourInstance",
+      "key": "instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{instance}}.my.salesforce.com/services/data/v59.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "85fc616d-7b21-4234-8c60-52e83b27c365",
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions Sustainability Goals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.\n\nContact Support:\n Name: Salesforce Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

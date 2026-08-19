@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions Energy Consumption API",
+    "version": "59.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.salesforce.com/services/oauth2/authorize",
+      "accessTokenUrl": "https://login.salesforce.com/services/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Energy Consumption",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Energy Consumption Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/EnergyConsumption",
+            "params": [
+              {
+                "name": "energyType",
+                "value": "",
+                "type": "query",
+                "description": "Filter by energy type"
+              },
+              {
+                "name": "reportingYear",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves energy consumption records including electricity, natural gas, fuel, and renewable energy usage across facilities and time periods."
+        },
+        {
+          "info": {
+            "name": "Create Energy Consumption Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/EnergyConsumption",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new energy consumption record for tracking energy usage at a facility or from a specific source."
+        },
+        {
+          "info": {
+            "name": "Get Energy Consumption Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/EnergyConsumption/:consumptionId",
+            "params": [
+              {
+                "name": "consumptionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves details for a specific energy consumption record."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

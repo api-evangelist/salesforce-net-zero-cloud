@@ -1,0 +1,178 @@
+{
+  "item": [
+    {
+      "id": "0be97285-5276-49c9-a6d2-40b26ce9f54c",
+      "name": "Emission Factors",
+      "description": {
+        "content": "Emission factor data and calculations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f70f59a4-8e95-4421-a3a7-0aeefe5adb51",
+          "name": "List Emission Factors",
+          "request": {
+            "name": "List Emission Factors",
+            "description": {
+              "content": "Retrieves emission factors used to calculate CO2 equivalent emissions from activity data. Includes region-specific grid emission factors, fuel emission factors, and custom factors.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sobjects",
+                "EmissionFactor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Filter by emission factor category"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "Filter by geographic region"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Salesforce instance identifier",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "124c60cc-38d3-46b3-b115-a08f07a73ad1",
+              "name": "Successfully retrieved emission factors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sobjects",
+                    "EmissionFactor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce instance identifier",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 2770,\n  \"done\": true,\n  \"records\": [\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"Category\": \"string\",\n      \"Scope\": 3102,\n      \"FactorValue\": 4964.614700496532,\n      \"Unit\": \"string\",\n      \"Region\": \"string\",\n      \"EffectiveStartDate\": \"2025-01-09\",\n      \"EffectiveEndDate\": \"1954-02-22\",\n      \"Source\": \"string\"\n    },\n    {\n      \"Id\": \"string\",\n      \"Name\": \"string\",\n      \"Category\": \"string\",\n      \"Scope\": 1632,\n      \"FactorValue\": 6366.76874205978,\n      \"Unit\": \"string\",\n      \"Region\": \"string\",\n      \"EffectiveStartDate\": \"1966-07-11\",\n      \"EffectiveEndDate\": \"1974-11-23\",\n      \"Source\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Salesforce instance identifier",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "yourInstance",
+      "key": "instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{instance}}.my.salesforce.com/services/data/v59.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7b55af5f-0cf4-4484-acdc-a70f16f6f45b",
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions Emission Factors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.\n\nContact Support:\n Name: Salesforce Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

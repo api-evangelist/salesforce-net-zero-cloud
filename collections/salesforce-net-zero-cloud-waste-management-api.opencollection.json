@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions Waste Management API",
+    "version": "59.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.salesforce.com/services/oauth2/authorize",
+      "accessTokenUrl": "https://login.salesforce.com/services/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Waste Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Waste Disposal Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/WasteDisposal"
+          },
+          "docs": "Retrieves waste disposal records including landfill, recycling, composting, and hazardous waste disposal data."
+        },
+        {
+          "info": {
+            "name": "Create Waste Disposal Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/WasteDisposal",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new waste disposal record."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

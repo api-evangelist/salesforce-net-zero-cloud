@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesforce Net Zero Cloud REST Carbon Emissions Sustainability Goals API",
+    "version": "59.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.salesforce.com/services/oauth2/authorize",
+      "accessTokenUrl": "https://login.salesforce.com/services/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sustainability Goals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Sustainability Goals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/SustainabilityGoal"
+          },
+          "docs": "Retrieves sustainability goals and net zero targets, including current progress, baseline years, and target years."
+        },
+        {
+          "info": {
+            "name": "Create Sustainability Goal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.my.salesforce.com/services/data/v59.0/sobjects/SustainabilityGoal",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new sustainability goal or net zero commitment with target metrics and timeline."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
