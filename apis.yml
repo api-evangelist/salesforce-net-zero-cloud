@@ -197,6 +197,8 @@ apis:
     url: >-
       https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
 common:
+  - type: Website
+    url: https://www.salesforce.com/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/salesforce-net-zero-cloud/overview
   - type: AgenticAccess
