@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Salesforce Net Zero Cloud REST Carbon Emissions Emission Factors API
+  title: Salesforce Net Zero Cloud REST Emission Factors API
   description: REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.
   version: 59.0.0
   termsOfService: https://www.salesforce.com/company/legal/agreements/

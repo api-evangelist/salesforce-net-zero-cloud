@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Salesforce Net Zero Cloud REST Carbon Emissions API
   description: REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.
@@ -151,41 +151,6 @@ paths:
           description: Record not found
 components:
   schemas:
-    CreateResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        success:
-          type: boolean
-        errors:
-          type: array
-          items:
-            type: string
-    CarbonEmissionUpdateInput:
-      type: object
-      properties:
-        QuantityMtCO2e:
-          type: number
-        Description:
-          type: string
-        ReportingPeriodStartDate:
-          type: string
-          format: date
-        ReportingPeriodEndDate:
-          type: string
-          format: date
-    CarbonEmissionListResponse:
-      type: object
-      properties:
-        totalSize:
-          type: integer
-        done:
-          type: boolean
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/CarbonEmissionSummary'
     CarbonEmission:
       allOf:
       - $ref: '#/components/schemas/CarbonEmissionSummary'
@@ -205,6 +170,32 @@ components:
           LastModifiedDate:
             type: string
             format: date-time
+    CarbonEmissionSummary:
+      type: object
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        Scope:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+        EmissionSource:
+          type: string
+        QuantityMtCO2e:
+          type: number
+          description: Metric tons of CO2 equivalent
+        ReportingYear:
+          type: integer
+        ReportingPeriodStartDate:
+          type: string
+          format: date
+        ReportingPeriodEndDate:
+          type: string
+          format: date
     CarbonEmissionInput:
       type: object
       required:
@@ -232,32 +223,41 @@ components:
           format: date
         Description:
           type: string
-    CarbonEmissionSummary:
+    CarbonEmissionListResponse:
       type: object
       properties:
-        Id:
-          type: string
-        Name:
-          type: string
-        Scope:
+        totalSize:
           type: integer
-          enum:
-          - 1
-          - 2
-          - 3
-        EmissionSource:
-          type: string
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/CarbonEmissionSummary'
+    CarbonEmissionUpdateInput:
+      type: object
+      properties:
         QuantityMtCO2e:
           type: number
-          description: Metric tons of CO2 equivalent
-        ReportingYear:
-          type: integer
+        Description:
+          type: string
         ReportingPeriodStartDate:
           type: string
           format: date
         ReportingPeriodEndDate:
           type: string
           format: date
+    CreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        success:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: string
   securitySchemes:
     oauth2:
       type: oauth2

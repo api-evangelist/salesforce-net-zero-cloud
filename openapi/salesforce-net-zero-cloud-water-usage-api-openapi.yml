@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Salesforce Net Zero Cloud REST Carbon Emissions Water Usage API
+  title: Salesforce Net Zero Cloud REST Water Usage API
   description: REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Salesforce Net Zero Cloud. Provides programmatic access to carbon accounting, ESG reporting, energy consumption, waste management, and supply chain emissions data.
   version: 59.0.0
   termsOfService: https://www.salesforce.com/company/legal/agreements/
@@ -59,17 +59,21 @@ paths:
                 $ref: '#/components/schemas/CreateResponse'
 components:
   schemas:
-    CreateResponse:
+    WaterWithdrawalInput:
       type: object
+      required:
+      - WaterSource
+      - QuantityCubicMeters
+      - ReportingYear
       properties:
-        id:
+        WaterSource:
           type: string
-        success:
-          type: boolean
-        errors:
-          type: array
-          items:
-            type: string
+        QuantityCubicMeters:
+          type: number
+        FacilityId:
+          type: string
+        ReportingYear:
+          type: integer
     WaterWithdrawalListResponse:
       type: object
       properties:
@@ -102,21 +106,17 @@ components:
           type: string
         ReportingYear:
           type: integer
-    WaterWithdrawalInput:
+    CreateResponse:
       type: object
-      required:
-      - WaterSource
-      - QuantityCubicMeters
-      - ReportingYear
       properties:
-        WaterSource:
+        id:
           type: string
-        QuantityCubicMeters:
-          type: number
-        FacilityId:
-          type: string
-        ReportingYear:
-          type: integer
+        success:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: string
   securitySchemes:
     oauth2:
       type: oauth2

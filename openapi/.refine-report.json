@@ -1,19 +1,13 @@
 {
   "provider": "salesforce-net-zero-cloud",
   "sources": [
-    "salesforce-net-zero-cloud-carbon-emissions-api-openapi.yml",
-    "salesforce-net-zero-cloud-emission-factors-api-openapi.yml",
-    "salesforce-net-zero-cloud-energy-consumption-api-openapi.yml",
-    "salesforce-net-zero-cloud-esg-reporting-api-openapi.yml",
-    "salesforce-net-zero-cloud-sustainability-goals-api-openapi.yml",
-    "salesforce-net-zero-cloud-waste-management-api-openapi.yml",
-    "salesforce-net-zero-cloud-water-usage-api-openapi.yml"
+    "_original/salesforce-net-zero-cloud-rest-api-openapi.yml"
   ],
   "outputs": [
     "salesforce-net-zero-cloud-carbon-emissions-api-openapi.yml",
+    "salesforce-net-zero-cloud-esg-reporting-api-openapi.yml",
     "salesforce-net-zero-cloud-emission-factors-api-openapi.yml",
     "salesforce-net-zero-cloud-energy-consumption-api-openapi.yml",
-    "salesforce-net-zero-cloud-esg-reporting-api-openapi.yml",
     "salesforce-net-zero-cloud-sustainability-goals-api-openapi.yml",
     "salesforce-net-zero-cloud-waste-management-api-openapi.yml",
     "salesforce-net-zero-cloud-water-usage-api-openapi.yml"
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "salesforce-net-zero-cloud-rest-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "salesforce-net-zero-cloud-carbon-emissions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "salesforce-net-zero-cloud-emission-factors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "salesforce-net-zero-cloud-energy-consumption-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "salesforce-net-zero-cloud-esg-reporting-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "salesforce-net-zero-cloud-sustainability-goals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "salesforce-net-zero-cloud-waste-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "salesforce-net-zero-cloud-water-usage-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
