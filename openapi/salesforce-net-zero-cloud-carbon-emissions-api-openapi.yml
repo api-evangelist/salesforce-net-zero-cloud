@@ -151,25 +151,19 @@ paths:
           description: Record not found
 components:
   schemas:
-    CarbonEmission:
-      allOf:
-      - $ref: '#/components/schemas/CarbonEmissionSummary'
-      - type: object
-        properties:
-          Description:
-            type: string
-          FacilityId:
-            type: string
-          CalculationMethod:
-            type: string
-          EmissionFactorId:
-            type: string
-          CreatedDate:
-            type: string
-            format: date-time
-          LastModifiedDate:
-            type: string
-            format: date-time
+    CarbonEmissionUpdateInput:
+      type: object
+      properties:
+        QuantityMtCO2e:
+          type: number
+        Description:
+          type: string
+        ReportingPeriodStartDate:
+          type: string
+          format: date
+        ReportingPeriodEndDate:
+          type: string
+          format: date
     CarbonEmissionSummary:
       type: object
       properties:
@@ -196,6 +190,47 @@ components:
         ReportingPeriodEndDate:
           type: string
           format: date
+    CarbonEmission:
+      allOf:
+      - $ref: '#/components/schemas/CarbonEmissionSummary'
+      - type: object
+        properties:
+          Description:
+            type: string
+          FacilityId:
+            type: string
+          CalculationMethod:
+            type: string
+          EmissionFactorId:
+            type: string
+          CreatedDate:
+            type: string
+            format: date-time
+          LastModifiedDate:
+            type: string
+            format: date-time
+    CarbonEmissionListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/CarbonEmissionSummary'
+    CreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        success:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: string
     CarbonEmissionInput:
       type: object
       required:
@@ -223,41 +258,6 @@ components:
           format: date
         Description:
           type: string
-    CarbonEmissionListResponse:
-      type: object
-      properties:
-        totalSize:
-          type: integer
-        done:
-          type: boolean
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/CarbonEmissionSummary'
-    CarbonEmissionUpdateInput:
-      type: object
-      properties:
-        QuantityMtCO2e:
-          type: number
-        Description:
-          type: string
-        ReportingPeriodStartDate:
-          type: string
-          format: date
-        ReportingPeriodEndDate:
-          type: string
-          format: date
-    CreateResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        success:
-          type: boolean
-        errors:
-          type: array
-          items:
-            type: string
   securitySchemes:
     oauth2:
       type: oauth2

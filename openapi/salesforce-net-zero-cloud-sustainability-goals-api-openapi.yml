@@ -90,17 +90,6 @@ components:
           - Achieved
           - Missed
           - InProgress
-    SustainabilityGoalListResponse:
-      type: object
-      properties:
-        totalSize:
-          type: integer
-        done:
-          type: boolean
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/SustainabilityGoal'
     SustainabilityGoalInput:
       type: object
       required:
@@ -118,6 +107,17 @@ components:
           type: integer
         ReductionTargetPercentage:
           type: number
+    SustainabilityGoalListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/SustainabilityGoal'
     CreateResponse:
       type: object
       properties:

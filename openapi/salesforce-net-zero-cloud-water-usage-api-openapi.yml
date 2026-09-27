@@ -74,17 +74,17 @@ components:
           type: string
         ReportingYear:
           type: integer
-    WaterWithdrawalListResponse:
+    CreateResponse:
       type: object
       properties:
-        totalSize:
-          type: integer
-        done:
+        id:
+          type: string
+        success:
           type: boolean
-        records:
+        errors:
           type: array
           items:
-            $ref: '#/components/schemas/WaterWithdrawal'
+            type: string
     WaterWithdrawal:
       type: object
       properties:
@@ -106,17 +106,17 @@ components:
           type: string
         ReportingYear:
           type: integer
-    CreateResponse:
+    WaterWithdrawalListResponse:
       type: object
       properties:
-        id:
-          type: string
-        success:
+        totalSize:
+          type: integer
+        done:
           type: boolean
-        errors:
+        records:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/WaterWithdrawal'
   securitySchemes:
     oauth2:
       type: oauth2

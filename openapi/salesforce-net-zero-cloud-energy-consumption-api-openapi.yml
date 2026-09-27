@@ -99,6 +99,17 @@ paths:
           description: Record not found
 components:
   schemas:
+    CreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        success:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: string
     EnergyConsumption:
       type: object
       properties:
@@ -153,17 +164,6 @@ components:
           type: string
         ReportingYear:
           type: integer
-    CreateResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        success:
-          type: boolean
-        errors:
-          type: array
-          items:
-            type: string
   securitySchemes:
     oauth2:
       type: oauth2
