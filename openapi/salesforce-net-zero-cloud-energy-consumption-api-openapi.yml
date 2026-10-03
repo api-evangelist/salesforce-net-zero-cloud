@@ -99,6 +99,21 @@ paths:
           description: Record not found
 components:
   schemas:
+    EnergyConsumptionInput:
+      type: object
+      required:
+      - EnergyType
+      - QuantityKWh
+      - ReportingYear
+      properties:
+        EnergyType:
+          type: string
+        QuantityKWh:
+          type: number
+        FacilityId:
+          type: string
+        ReportingYear:
+          type: integer
     CreateResponse:
       type: object
       properties:
@@ -110,6 +125,17 @@ components:
           type: array
           items:
             type: string
+    EnergyConsumptionListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnergyConsumption'
     EnergyConsumption:
       type: object
       properties:
@@ -138,32 +164,6 @@ components:
         ReportingPeriodEndDate:
           type: string
           format: date
-    EnergyConsumptionListResponse:
-      type: object
-      properties:
-        totalSize:
-          type: integer
-        done:
-          type: boolean
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/EnergyConsumption'
-    EnergyConsumptionInput:
-      type: object
-      required:
-      - EnergyType
-      - QuantityKWh
-      - ReportingYear
-      properties:
-        EnergyType:
-          type: string
-        QuantityKWh:
-          type: number
-        FacilityId:
-          type: string
-        ReportingYear:
-          type: integer
   securitySchemes:
     oauth2:
       type: oauth2

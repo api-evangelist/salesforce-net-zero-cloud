@@ -53,17 +53,6 @@ paths:
                 $ref: '#/components/schemas/EmissionFactorListResponse'
 components:
   schemas:
-    EmissionFactorListResponse:
-      type: object
-      properties:
-        totalSize:
-          type: integer
-        done:
-          type: boolean
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/EmissionFactor'
     EmissionFactor:
       type: object
       properties:
@@ -91,6 +80,17 @@ components:
         Source:
           type: string
           description: Source authority for the emission factor (e.g., EPA, DEFRA, IEA)
+    EmissionFactorListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmissionFactor'
   securitySchemes:
     oauth2:
       type: oauth2

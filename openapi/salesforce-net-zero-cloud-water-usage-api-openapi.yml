@@ -59,6 +59,28 @@ paths:
                 $ref: '#/components/schemas/CreateResponse'
 components:
   schemas:
+    WaterWithdrawalListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/WaterWithdrawal'
+    CreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        success:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: string
     WaterWithdrawalInput:
       type: object
       required:
@@ -74,17 +96,6 @@ components:
           type: string
         ReportingYear:
           type: integer
-    CreateResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        success:
-          type: boolean
-        errors:
-          type: array
-          items:
-            type: string
     WaterWithdrawal:
       type: object
       properties:
@@ -106,17 +117,6 @@ components:
           type: string
         ReportingYear:
           type: integer
-    WaterWithdrawalListResponse:
-      type: object
-      properties:
-        totalSize:
-          type: integer
-        done:
-          type: boolean
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/WaterWithdrawal'
   securitySchemes:
     oauth2:
       type: oauth2

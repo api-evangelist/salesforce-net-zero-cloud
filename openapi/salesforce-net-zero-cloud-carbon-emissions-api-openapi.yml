@@ -151,19 +151,33 @@ paths:
           description: Record not found
 components:
   schemas:
-    CarbonEmissionUpdateInput:
+    CarbonEmissionInput:
       type: object
+      required:
+      - Scope
+      - QuantityMtCO2e
+      - ReportingYear
       properties:
+        Scope:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+        EmissionSource:
+          type: string
         QuantityMtCO2e:
           type: number
-        Description:
-          type: string
+        ReportingYear:
+          type: integer
         ReportingPeriodStartDate:
           type: string
           format: date
         ReportingPeriodEndDate:
           type: string
           format: date
+        Description:
+          type: string
     CarbonEmissionSummary:
       type: object
       properties:
@@ -184,6 +198,19 @@ components:
           description: Metric tons of CO2 equivalent
         ReportingYear:
           type: integer
+        ReportingPeriodStartDate:
+          type: string
+          format: date
+        ReportingPeriodEndDate:
+          type: string
+          format: date
+    CarbonEmissionUpdateInput:
+      type: object
+      properties:
+        QuantityMtCO2e:
+          type: number
+        Description:
+          type: string
         ReportingPeriodStartDate:
           type: string
           format: date
@@ -231,33 +258,6 @@ components:
           type: array
           items:
             type: string
-    CarbonEmissionInput:
-      type: object
-      required:
-      - Scope
-      - QuantityMtCO2e
-      - ReportingYear
-      properties:
-        Scope:
-          type: integer
-          enum:
-          - 1
-          - 2
-          - 3
-        EmissionSource:
-          type: string
-        QuantityMtCO2e:
-          type: number
-        ReportingYear:
-          type: integer
-        ReportingPeriodStartDate:
-          type: string
-          format: date
-        ReportingPeriodEndDate:
-          type: string
-          format: date
-        Description:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
