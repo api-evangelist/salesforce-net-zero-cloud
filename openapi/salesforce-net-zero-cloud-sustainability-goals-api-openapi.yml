@@ -76,6 +76,17 @@ components:
           type: integer
         ReductionTargetPercentage:
           type: number
+    SustainabilityGoalListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/SustainabilityGoal'
     SustainabilityGoal:
       type: object
       properties:
@@ -118,17 +129,6 @@ components:
           type: array
           items:
             type: string
-    SustainabilityGoalListResponse:
-      type: object
-      properties:
-        totalSize:
-          type: integer
-        done:
-          type: boolean
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/SustainabilityGoal'
   securitySchemes:
     oauth2:
       type: oauth2

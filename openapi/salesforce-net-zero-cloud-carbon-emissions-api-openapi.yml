@@ -151,6 +151,64 @@ paths:
           description: Record not found
 components:
   schemas:
+    CarbonEmissionSummary:
+      type: object
+      properties:
+        Id:
+          type: string
+        Name:
+          type: string
+        Scope:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+        EmissionSource:
+          type: string
+        QuantityMtCO2e:
+          type: number
+          description: Metric tons of CO2 equivalent
+        ReportingYear:
+          type: integer
+        ReportingPeriodStartDate:
+          type: string
+          format: date
+        ReportingPeriodEndDate:
+          type: string
+          format: date
+    CarbonEmission:
+      allOf:
+      - $ref: '#/components/schemas/CarbonEmissionSummary'
+      - type: object
+        properties:
+          Description:
+            type: string
+          FacilityId:
+            type: string
+          CalculationMethod:
+            type: string
+          EmissionFactorId:
+            type: string
+          CreatedDate:
+            type: string
+            format: date-time
+          LastModifiedDate:
+            type: string
+            format: date-time
+    CarbonEmissionUpdateInput:
+      type: object
+      properties:
+        QuantityMtCO2e:
+          type: number
+        Description:
+          type: string
+        ReportingPeriodStartDate:
+          type: string
+          format: date
+        ReportingPeriodEndDate:
+          type: string
+          format: date
     CarbonEmissionInput:
       type: object
       required:
@@ -178,64 +236,6 @@ components:
           format: date
         Description:
           type: string
-    CarbonEmissionSummary:
-      type: object
-      properties:
-        Id:
-          type: string
-        Name:
-          type: string
-        Scope:
-          type: integer
-          enum:
-          - 1
-          - 2
-          - 3
-        EmissionSource:
-          type: string
-        QuantityMtCO2e:
-          type: number
-          description: Metric tons of CO2 equivalent
-        ReportingYear:
-          type: integer
-        ReportingPeriodStartDate:
-          type: string
-          format: date
-        ReportingPeriodEndDate:
-          type: string
-          format: date
-    CarbonEmissionUpdateInput:
-      type: object
-      properties:
-        QuantityMtCO2e:
-          type: number
-        Description:
-          type: string
-        ReportingPeriodStartDate:
-          type: string
-          format: date
-        ReportingPeriodEndDate:
-          type: string
-          format: date
-    CarbonEmission:
-      allOf:
-      - $ref: '#/components/schemas/CarbonEmissionSummary'
-      - type: object
-        properties:
-          Description:
-            type: string
-          FacilityId:
-            type: string
-          CalculationMethod:
-            type: string
-          EmissionFactorId:
-            type: string
-          CreatedDate:
-            type: string
-            format: date-time
-          LastModifiedDate:
-            type: string
-            format: date-time
     CarbonEmissionListResponse:
       type: object
       properties:
