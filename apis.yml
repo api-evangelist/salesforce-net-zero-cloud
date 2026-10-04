@@ -197,6 +197,9 @@ apis:
     url: >-
       https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
 common:
+  - type: CapabilityMap
+    url: capabilities/salesforce-net-zero-cloud-capability-edges.yml
+    name: Salesforce Net Zero Cloud Business Capability Map
   - type: Website
     url: https://www.salesforce.com/
   - type: PostmanWorkspace

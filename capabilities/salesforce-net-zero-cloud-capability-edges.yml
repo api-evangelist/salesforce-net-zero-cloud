@@ -1,0 +1,66 @@
+slug: salesforce-net-zero-cloud
+provider: Salesforce Net Zero Cloud
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: Carbon Emissions
+  spec_file: salesforce-net-zero-cloud-carbon-emissions-api-openapi.yml
+  capability_id: BC-740.20
+  capability_id_l1: BC-740
+  capability_name: Climate & Carbon Management
+  confidence: 0.95
+  evidence: POST /sobjects/CarbonEmission  createCarbonEmission  Create Carbon Emission Record
+  reason: CRUD on carbon emission records for carbon accounting — directly Climate & Carbon Management.
+- tag: Emission Factors
+  spec_file: salesforce-net-zero-cloud-emission-factors-api-openapi.yml
+  capability_id: BC-740.20
+  capability_id_l1: BC-740
+  capability_name: Climate & Carbon Management
+  confidence: 0.9
+  evidence: GET /sobjects/EmissionFactor  listEmissionFactors  List Emission Factors
+  reason: Emission factors are reference data for carbon footprint calculation — Climate & Carbon Management.
+- tag: Sustainability Goals
+  spec_file: salesforce-net-zero-cloud-sustainability-goals-api-openapi.yml
+  capability_id: BC-740.10
+  capability_id_l1: BC-740
+  capability_name: ESG Strategy & Reporting Management
+  confidence: 0.85
+  evidence: POST /sobjects/SustainabilityGoal  createSustainabilityGoal  Create Sustainability Goal
+  reason: Management of sustainability goals/targets — ESG strategy and reporting.
+- tag: Energy Consumption
+  spec_file: salesforce-net-zero-cloud-energy-consumption-api-openapi.yml
+  capability_id: BC-740.20
+  capability_id_l1: BC-740
+  capability_name: Climate & Carbon Management
+  confidence: 0.8
+  evidence: POST /sobjects/EnergyConsumption  createEnergyConsumption  Create Energy Consumption Record
+  reason: Energy consumption records feed carbon footprint accounting in a carbon accounting product;
+    could alternatively be Environmental Management (BC-730.30), hence 0.8.
+- tag: ESG Reporting
+  spec_file: salesforce-net-zero-cloud-esg-reporting-api-openapi.yml
+  capability_id: BC-740.10
+  capability_id_l1: BC-740
+  capability_name: ESG Strategy & Reporting Management
+  confidence: 0.75
+  evidence: GET /query  querySustainabilityData  Query Sustainability Data
+  reason: Generic query endpoint but explicitly scoped to sustainability/ESG reporting data in this spec;
+    maps to ESG Strategy & Reporting. Thin surface (single generic query op) lowers confidence.
+- tag: Waste Management
+  spec_file: salesforce-net-zero-cloud-waste-management-api-openapi.yml
+  capability_id: BC-740
+  capability_id_l1: BC-740
+  capability_name: Sustainability Management
+  confidence: 0.7
+  evidence: POST /sobjects/WasteDisposal  createWasteDisposalRecord  Create Waste Disposal Record
+  reason: Waste disposal tracking within a sustainability reporting product; L2 ambiguous between Circular
+    Economy (740.30) and environmental reporting, so only L1 asserted.
