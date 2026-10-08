@@ -197,6 +197,12 @@ apis:
     url: >-
       https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/
 common:
+  - type: Plans
+    url: plans/salesforce-net-zero-cloud-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/salesforce-net-zero-cloud-rate-limits.yml
+  - type: FinOps
+    url: finops/salesforce-net-zero-cloud-finops.yml
   - type: CapabilityMap
     url: capabilities/salesforce-net-zero-cloud-capability-edges.yml
     name: Salesforce Net Zero Cloud Business Capability Map
