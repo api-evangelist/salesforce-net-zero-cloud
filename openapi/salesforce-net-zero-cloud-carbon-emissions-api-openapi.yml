@@ -177,25 +177,28 @@ components:
         ReportingPeriodEndDate:
           type: string
           format: date
-    CarbonEmission:
-      allOf:
-      - $ref: '#/components/schemas/CarbonEmissionSummary'
-      - type: object
-        properties:
-          Description:
+    CreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        success:
+          type: boolean
+        errors:
+          type: array
+          items:
             type: string
-          FacilityId:
-            type: string
-          CalculationMethod:
-            type: string
-          EmissionFactorId:
-            type: string
-          CreatedDate:
-            type: string
-            format: date-time
-          LastModifiedDate:
-            type: string
-            format: date-time
+    CarbonEmissionListResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+        done:
+          type: boolean
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/CarbonEmissionSummary'
     CarbonEmissionUpdateInput:
       type: object
       properties:
@@ -236,28 +239,25 @@ components:
           format: date
         Description:
           type: string
-    CarbonEmissionListResponse:
-      type: object
-      properties:
-        totalSize:
-          type: integer
-        done:
-          type: boolean
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/CarbonEmissionSummary'
-    CreateResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        success:
-          type: boolean
-        errors:
-          type: array
-          items:
+    CarbonEmission:
+      allOf:
+      - $ref: '#/components/schemas/CarbonEmissionSummary'
+      - type: object
+        properties:
+          Description:
             type: string
+          FacilityId:
+            type: string
+          CalculationMethod:
+            type: string
+          EmissionFactorId:
+            type: string
+          CreatedDate:
+            type: string
+            format: date-time
+          LastModifiedDate:
+            type: string
+            format: date-time
   securitySchemes:
     oauth2:
       type: oauth2

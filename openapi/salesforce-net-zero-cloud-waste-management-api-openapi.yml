@@ -59,22 +59,17 @@ paths:
                 $ref: '#/components/schemas/CreateResponse'
 components:
   schemas:
-    WasteDisposalInput:
+    CreateResponse:
       type: object
-      required:
-      - WasteType
-      - DisposalMethod
-      - QuantityKg
-      - ReportingYear
       properties:
-        WasteType:
+        id:
           type: string
-        DisposalMethod:
-          type: string
-        QuantityKg:
-          type: number
-        ReportingYear:
-          type: integer
+        success:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: string
     WasteDisposal:
       type: object
       properties:
@@ -96,6 +91,22 @@ components:
           type: number
         ReportingYear:
           type: integer
+    WasteDisposalInput:
+      type: object
+      required:
+      - WasteType
+      - DisposalMethod
+      - QuantityKg
+      - ReportingYear
+      properties:
+        WasteType:
+          type: string
+        DisposalMethod:
+          type: string
+        QuantityKg:
+          type: number
+        ReportingYear:
+          type: integer
     WasteDisposalListResponse:
       type: object
       properties:
@@ -107,17 +118,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WasteDisposal'
-    CreateResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        success:
-          type: boolean
-        errors:
-          type: array
-          items:
-            type: string
   securitySchemes:
     oauth2:
       type: oauth2

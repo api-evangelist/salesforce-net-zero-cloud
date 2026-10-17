@@ -59,34 +59,17 @@ paths:
                 $ref: '#/components/schemas/CreateResponse'
 components:
   schemas:
-    SustainabilityGoalInput:
-      type: object
-      required:
-      - GoalType
-      - BaselineYear
-      - TargetYear
-      properties:
-        Name:
-          type: string
-        GoalType:
-          type: string
-        BaselineYear:
-          type: integer
-        TargetYear:
-          type: integer
-        ReductionTargetPercentage:
-          type: number
-    SustainabilityGoalListResponse:
+    CreateResponse:
       type: object
       properties:
-        totalSize:
-          type: integer
-        done:
+        id:
+          type: string
+        success:
           type: boolean
-        records:
+        errors:
           type: array
           items:
-            $ref: '#/components/schemas/SustainabilityGoal'
+            type: string
     SustainabilityGoal:
       type: object
       properties:
@@ -118,17 +101,34 @@ components:
           - Achieved
           - Missed
           - InProgress
-    CreateResponse:
+    SustainabilityGoalListResponse:
       type: object
       properties:
-        id:
-          type: string
-        success:
+        totalSize:
+          type: integer
+        done:
           type: boolean
-        errors:
+        records:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/SustainabilityGoal'
+    SustainabilityGoalInput:
+      type: object
+      required:
+      - GoalType
+      - BaselineYear
+      - TargetYear
+      properties:
+        Name:
+          type: string
+        GoalType:
+          type: string
+        BaselineYear:
+          type: integer
+        TargetYear:
+          type: integer
+        ReductionTargetPercentage:
+          type: number
   securitySchemes:
     oauth2:
       type: oauth2
