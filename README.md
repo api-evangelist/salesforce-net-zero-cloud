@@ -1,4 +1,4 @@
-# Salesforce Net Zero Cloud (salesforce-net-zero-cloud)
+# Salesforce Net Zero Cloud
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,107 +66,188 @@
 
 The Salesforce Net Zero Cloud API enables organizations to track, analyze, and report on their carbon emissions and sustainability data. It provides programmatic access to environmental data, carbon accounting, and ESG reporting capabilities including Scope 1, 2, and 3 emissions tracking, energy consumption, waste management, water usage, and sustainability goal management.
 
-**APIs.json:** [https://www.salesforce.com/products/net-zero-cloud/overview/](https://www.salesforce.com/products/net-zero-cloud/overview/)
+**Areas:** Carbon Accounting · Carbon Emissions · Climate · Environmental · ESG · Net Zero · Sustainability
 
-## Tags
+## Salesforce Net Zero Cloud on APIs.io
 
-- Carbon Accounting
-- Carbon Emissions
-- Climate
-- Environmental
-- ESG
-- Net Zero
-- Sustainability
+Everything profiled for Salesforce Net Zero Cloud is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/salesforce-net-zero-cloud/](https://apis.io/providers/salesforce-net-zero-cloud/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (9)
 
-- **Created:** 2024
-- **Modified:** 2026-05-19
+- [Carbon Accounting API](https://apis.io/apis/salesforce-net-zero-cloud/carbon-accounting-api/) — API endpoints for carbon footprint calculations, emission factors, and sustainability metrics aggregation. Enables retrieval of emission factors and…
+- [Sustainability Data API](https://apis.io/apis/salesforce-net-zero-cloud/sustainability-data-api/) — API for accessing and managing sustainability data including energy consumption, waste management, water usage, and renewable energy tracking.
+- [Salesforce Net Zero Cloud Carbon Emissions API](https://apis.io/apis/salesforce-net-zero-cloud/salesforce-net-zero-cloud-carbon-emissions-api/) — Carbon emission record management
+- [Salesforce Net Zero Cloud Emission Factors API](https://apis.io/apis/salesforce-net-zero-cloud/salesforce-net-zero-cloud-emission-factors-api/) — Emission factor data and calculations
+- [Salesforce Net Zero Cloud Energy Consumption API](https://apis.io/apis/salesforce-net-zero-cloud/salesforce-net-zero-cloud-energy-consumption-api/) — Energy usage tracking and management
+- [Salesforce Net Zero Cloud ESG Reporting API](https://apis.io/apis/salesforce-net-zero-cloud/salesforce-net-zero-cloud-esg-reporting-api/) — Environmental, Social, and Governance reporting
+- [Salesforce Net Zero Cloud Sustainability Goals API](https://apis.io/apis/salesforce-net-zero-cloud/salesforce-net-zero-cloud-sustainability-goals-api/) — Net zero and sustainability target management
+- [Salesforce Net Zero Cloud Waste Management API](https://apis.io/apis/salesforce-net-zero-cloud/salesforce-net-zero-cloud-waste-management-api/) — Waste and recycling data management
+- [Salesforce Net Zero Cloud Water Usage API](https://apis.io/apis/salesforce-net-zero-cloud/salesforce-net-zero-cloud-water-usage-api/) — Water consumption tracking
 
-## APIs
+### Published properties
 
-### Net Zero Cloud REST API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API for managing carbon emissions data, sustainability records, and environmental impact tracking within Net Zero Cloud. Supports Scope 1, 2, and 3 emissions, energy consumption, waste disposal, water withdrawal, and sustainability goals.
+#### Agentic access (1)
 
-- **Human URL:** [https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
-- **Base URL:** `https://yourinstance.my.salesforce.com/services/data/v59.0/`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Salesforce Net Zero Cloud Agentic Access](https://apis.io/agentic-access/salesforce-net-zero-cloud/salesforce-net-zero-cloud-agentic-access/)
 
-- Carbon Emissions
-- Emissions Tracking
-- REST
-- Sustainability
+#### JSON Schema (2)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
-- [OpenAPI](openapi/salesforce-net-zero-cloud-rest-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/salesforce-net-zero-cloud-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/salesforce-net-zero-cloud-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm)
-- [Rate Limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/)
+- [Salesforce Net Zero Cloud Carbon Emission](https://apis.io/schemas/salesforce-net-zero-cloud/salesforce-net-zero-cloud-carbon-emission/)
+- [Salesforce Net Zero Cloud Sustainability Goal](https://apis.io/schemas/salesforce-net-zero-cloud/salesforce-net-zero-cloud-sustainability-goal/)
 
-### Carbon Accounting API
+#### JSON Structure (1)
 
-API endpoints for carbon footprint calculations, emission factors, and sustainability metrics aggregation. Enables retrieval of emission factors and calculation of CO2e from activity data.
+Data models expressed in JSON Structure.
 
-- **Human URL:** [https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
-- **Base URL:** `https://yourinstance.my.salesforce.com/services/data/v59.0/`
+- [Salesforce Net Zero Cloud Carbon Emission Structure](https://apis.io/json-structure/salesforce-net-zero-cloud/salesforce-net-zero-cloud-carbon-emission-structure/)
 
-#### Tags
+#### JSON-LD (1)
 
-- Carbon Accounting
-- Emission Factors
-- Footprint Calculation
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Salesforce Net Zero Cloud Context](https://apis.io/jsonld/salesforce-net-zero-cloud/salesforce-net-zero-cloud-context/)
 
-- [Documentation](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
-- [Postman Collection](collections/salesforce-net-zero-cloud-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/salesforce-net-zero-cloud-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Vocabulary (1)
 
-### Sustainability Data API
+The provider's domain terms, defined.
 
-API for accessing and managing sustainability data including energy consumption, waste management, water usage, and renewable energy tracking.
+- [Salesforce Net Zero Cloud Vocabulary](https://apis.io/vocabularies/salesforce-net-zero-cloud/salesforce-net-zero-cloud-vocabulary/)
 
-- **Human URL:** [https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
-- **Base URL:** `https://yourinstance.my.salesforce.com/services/data/v59.0/`
+#### Examples (2)
 
-#### Tags
+Example requests and responses.
 
-- Energy Consumption
-- Sustainability Data
-- Waste Management
-- Water Usage
+- [Salesforce Net Zero Cloud Create Carbon Emission Example](https://apis.io/examples/salesforce-net-zero-cloud/salesforce-net-zero-cloud-create-carbon-emission-example/)
+- [Salesforce Net Zero Cloud List Sustainability Goals Example](https://apis.io/examples/salesforce-net-zero-cloud/salesforce-net-zero-cloud-list-sustainability-goals-example/)
 
-#### Properties
+#### Collections (15)
 
-- [Documentation](https://developer.salesforce.com/docs/atlas.en-us.netzero_api.meta/netzero_api/)
-- [Postman Collection](collections/salesforce-net-zero-cloud-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/salesforce-net-zero-cloud-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Salesforce Net Zero Cloud REST Carbon Emissions API](https://apis.io/collections/salesforce-net-zero-cloud/open-salesforce-net-zero-cloud-carbon-emissions-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions Emission Factors API](https://apis.io/collections/salesforce-net-zero-cloud/open-salesforce-net-zero-cloud-emission-factors-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions Energy Consumption API](https://apis.io/collections/salesforce-net-zero-cloud/open-salesforce-net-zero-cloud-energy-consumption-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions ESG Reporting API](https://apis.io/collections/salesforce-net-zero-cloud/open-salesforce-net-zero-cloud-esg-reporting-api/)
+- [Salesforce Net Zero Cloud REST API](https://apis.io/collections/salesforce-net-zero-cloud/open-salesforce-net-zero-cloud-rest-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions Sustainability Goals API](https://apis.io/collections/salesforce-net-zero-cloud/open-salesforce-net-zero-cloud-sustainability-goals-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions Waste Management API](https://apis.io/collections/salesforce-net-zero-cloud/open-salesforce-net-zero-cloud-waste-management-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions Water Usage API](https://apis.io/collections/salesforce-net-zero-cloud/open-salesforce-net-zero-cloud-water-usage-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions API](https://apis.io/collections/salesforce-net-zero-cloud/postman-salesforce-net-zero-cloud-carbon-emissions-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions Emission Factors API](https://apis.io/collections/salesforce-net-zero-cloud/postman-salesforce-net-zero-cloud-emission-factors-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions Energy Consumption API](https://apis.io/collections/salesforce-net-zero-cloud/postman-salesforce-net-zero-cloud-energy-consumption-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions ESG Reporting API](https://apis.io/collections/salesforce-net-zero-cloud/postman-salesforce-net-zero-cloud-esg-reporting-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions Sustainability Goals API](https://apis.io/collections/salesforce-net-zero-cloud/postman-salesforce-net-zero-cloud-sustainability-goals-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions Waste Management API](https://apis.io/collections/salesforce-net-zero-cloud/postman-salesforce-net-zero-cloud-waste-management-api/)
+- [Salesforce Net Zero Cloud REST Carbon Emissions Water Usage API](https://apis.io/collections/salesforce-net-zero-cloud/postman-salesforce-net-zero-cloud-water-usage-api/)
 
-- [Developer  Portal](https://developer.salesforce.com/)
-- [Getting Started](https://trailhead.salesforce.com/content/learn/modules/net-zero-cloud-basics)
-- [Authentication](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm)
-- [Status Page](https://status.salesforce.com/)
-- [Terms of Service](https://www.salesforce.com/company/legal/agreements/)
-- [Privacy Policy](https://www.salesforce.com/company/privacy/)
-- [Trailhead  Learning](https://trailhead.salesforce.com/content/learn/trails/get-started-with-net-zero-cloud)
-- [Release Notes](https://help.salesforce.com/s/articleView?id=release-notes.salesforce_release_notes.htm)
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Salesforce Net Zero Cloud — jsonschema rules](https://apis.io/rules/salesforce-net-zero-cloud/salesforce-net-zero-cloud-jsonschema-spectral-rules/)
+- [Salesforce Net Zero Cloud API Rules](https://apis.io/rules/salesforce-net-zero-cloud/salesforce-net-zero-cloud-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Salesforce Net Zero Cloud Authentication](https://apis.io/security/salesforce-net-zero-cloud/salesforce-net-zero-cloud-authentication/)
+- [Salesforce Net Zero Cloud Domain Security](https://apis.io/security/salesforce-net-zero-cloud/salesforce-net-zero-cloud-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Salesforce Net Zero Cloud Scopes](https://apis.io/scopes/salesforce-net-zero-cloud/salesforce-net-zero-cloud-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Salesforce Net Zero Cloud Plans Pricing](https://apis.io/plans/salesforce-net-zero-cloud/salesforce-net-zero-cloud-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Salesforce Net Zero Cloud Rate Limits](https://apis.io/rate-limits/salesforce-net-zero-cloud/salesforce-net-zero-cloud-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Salesforce Net Zero Cloud Finops](https://apis.io/finops/salesforce-net-zero-cloud/salesforce-net-zero-cloud-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.salesforce.com/)
+- [Getting started](https://trailhead.salesforce.com/content/learn/modules/net-zero-cloud-basics)
 - [Support](https://help.salesforce.com/)
-- [GitHub Organization](https://github.com/salesforce)
-- [Spectral  Rules](rules/salesforce-net-zero-cloud-rules.yml)
-- [Capabilities](capabilities/carbon-accounting.yaml)
-- [J S O N  Schema](json-schema/salesforce-net-zero-cloud-carbon-emission-schema.json)
-- [J S O N  Schema](json-schema/salesforce-net-zero-cloud-sustainability-goal-schema.json)
-- [J S O N- L D  Context](json-ld/salesforce-net-zero-cloud-context.jsonld)
-- [Vocabulary](vocabulary/salesforce-net-zero-cloud-vocabulary.yml)
+- [Blog](https://developer.salesforce.com/blogs/feed)
+- [Terms of service](https://www.salesforce.com/company/legal/agreements/)
+- [Privacy policy](https://www.salesforce.com/company/privacy/)
+- [GitHub](https://github.com/salesforce)
+- [Status](https://status.salesforce.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 46.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 57.4 |
+| Contract governance | 23.5 |
+| Operational transparency | 31.6 |
+| Developer ergonomics | 51.2 |
+| Access clarity | 26.3 |
+
+**Agent readiness 25.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/salesforce-net-zero-cloud/](https://apis.io/providers/salesforce-net-zero-cloud/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Salesforce Net Zero Cloud: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/salesforce-net-zero-cloud/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
